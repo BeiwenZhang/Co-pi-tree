@@ -15,6 +15,7 @@
       <a class="brand" href="#top">Co-&pi;-tree</a>
       <nav aria-label="Primary navigation">
         <a href="#overview">Overview</a>
+        <a href="#method">Method</a>
         <a href="#videos">Videos</a>
         <a href="#results">Results</a>
         <a href="#bibtex">BibTeX</a>
@@ -27,8 +28,9 @@
           <p class="eyebrow">Human-AI Collaboration · Overcooked-AI · Interpretable Policies</p>
           <h1>Distilling LLM Reasoning into an Interpretable Policy Tree for Human-AI Collaboration</h1>
           <p class="subtitle">
-            Co-&pi;-tree converts LLM reasoning into executable policy trees, then improves
-            weak branches through closed-loop interaction feedback.
+            Co-&pi;-tree distills LLM coordination reasoning into executable policy trees:
+            fast enough for real-time collaboration, and explicit enough for branch-level
+            inspection and refinement.
           </p>
           <p class="authors">
             Beiwen Zhang<sup>*</sup>, Yongheng Liang<sup>*</sup>, Guowei Zou,
@@ -70,24 +72,76 @@
           that code with partners in Overcooked-AI, and uses natural language feedback to
           repair problematic branches.
         </p>
-        <div class="image-frame">
+        <div class="insight-grid">
+          <article class="insight-card">
+            <span>1</span>
+            <h3>Predict the partner</h3>
+            <p>A partner-behavior tree estimates what the teammate is likely to do from a readable scene state.</p>
+          </article>
+          <article class="insight-card">
+            <span>2</span>
+            <h3>Act complementarily</h3>
+            <p>An action-selection tree chooses the controlled agent's next action conditioned on that prediction.</p>
+          </article>
+          <article class="insight-card">
+            <span>3</span>
+            <h3>Repair weak branches</h3>
+            <p>Execution traces expose failed predictions or inefficient actions, then reflection revises local branches.</p>
+          </article>
+        </div>
+        <div class="image-frame flush">
           <img src="assets/images/framework.png" alt="Framework of Co-pi-tree">
         </div>
       </section>
 
-      <section class="section split">
-        <div>
+      <section class="section">
+        <div class="section-heading">
           <p class="eyebrow">Motivation</p>
           <h2>Policies should be fast enough to act and clear enough to inspect.</h2>
           <p>
-            Co-&pi;-tree learns two coordinated trees: one predicts partner behavior, and
-            the other selects the agent action conditioned on that prediction. The result
-            is an executable policy that can be inspected, edited, and deployed without
-            querying an LLM at every step.
+            MARL policies execute quickly but hide their reasoning inside neural
+            parameters. Online LLM agents expose language reasoning, but repeated model
+            calls are too slow for smooth collaboration. Co-&pi;-tree uses LLMs while
+            learning and refinement happen, then deploys the final policy tree directly
+            during interaction.
           </p>
         </div>
-        <div class="image-frame compact">
+        <div class="image-frame wide flush">
           <img src="assets/images/motivation.png" alt="Motivation illustration">
+        </div>
+      </section>
+
+      <section id="method" class="section method-section">
+        <div class="section-heading">
+          <p class="eyebrow">Method</p>
+          <h2>A closed-loop pipeline for executable, inspectable collaboration policies.</h2>
+        </div>
+        <div class="method-grid">
+          <article>
+            <h3>Policy construction</h3>
+            <p>
+              A planner first generates a partner-behavior prediction tree and then an
+              agent-action selection tree. A coder translates both into executable Python
+              while preserving explicit <code>if/elif</code> decision branches.
+            </p>
+          </article>
+          <article>
+            <h3>Environment grounding</h3>
+            <p>
+              Raw Overcooked-AI states are converted into textual semantic fields that
+              expose task progress, object status, and partner behavior. The executor maps
+              high-level tree actions to feasible movement and interaction commands.
+            </p>
+          </article>
+          <article>
+            <h3>Policy refinement</h3>
+            <p>
+              Candidate policies are evaluated through partner interaction. If a branch
+              causes poor coordination, a summarizer turns the trace into localized
+              reflection so the next planner call can revise that branch without changing
+              unrelated behavior.
+            </p>
+          </article>
         </div>
       </section>
 
@@ -157,8 +211,14 @@
         <div class="section-heading">
           <p class="eyebrow">Environment</p>
           <h2>Five Overcooked-AI layouts.</h2>
+          <p>
+            Each episode lasts 400 environment steps. We evaluate zero-shot collaboration
+            across cramped room, coordination ring, counter circuit, asymmetric
+            advantages, and forced coordination layouts, covering bottlenecks, role
+            specialization, handoffs, and separated work areas.
+          </p>
         </div>
-        <div class="image-frame">
+        <div class="image-frame flush">
           <img src="assets/images/overcooked-layouts.jpg" alt="Five Overcooked-AI layouts">
         </div>
       </section>
@@ -167,6 +227,26 @@
         <div class="section-heading">
           <p class="eyebrow">Results</p>
           <h2>Higher reward with fewer LLM calls.</h2>
+          <p>
+            Co-&pi;-tree is evaluated against MARL, imitation, and LLM-based baselines,
+            including SP, PBT, FCP, MEP, COLE, BC, ProAgent, and CausalPlan. It improves
+            reward across both AI-partner and human-partner settings while removing
+            repeated online LLM calls after the final tree is learned.
+          </p>
+        </div>
+        <div class="finding-grid">
+          <article>
+            <strong>AI partners</strong>
+            <p>Outperforms all baselines in 8 of 10 layout-role settings and improves average reward by 35.4%.</p>
+          </article>
+          <article>
+            <strong>Human partners</strong>
+            <p>Obtains the highest mean reward on all five human-study layouts among the full method and ablations.</p>
+          </article>
+          <article>
+            <strong>Efficiency</strong>
+            <p>Once the policy tree is produced, additional evaluations do not require extra LLM queries.</p>
+          </article>
         </div>
         <div class="results-grid">
           <figure class="image-frame">
