@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Co-pi-tree experimental results">
+    <title>Co-pi-tree: Results</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="navbar">
+        <a class="nav-brand" href="index.html">Co-&pi;-tree</a>
+        <nav aria-label="Main navigation">
+            <a href="index.html">Overview</a>
+            <a href="method.html">Method</a>
+            <a href="results.html" class="active">Results</a>
+            <a href="video.html">Video</a>
+            <a href="conclusion.html">Conclusion</a>
+            <a href="reference.html">Reference</a>
+        </nav>
+    </div>
+
+    <main class="page-main">
+        <section class="section">
+            <div class="container">
+                <h2>Benchmark Results</h2>
+                <div class="content">
+                    <div class="research-question">
+                        Q1: How effectively does Co-&pi;-tree collaborate with unseen AI partners and real human partners?
+                    </div>
+                    <p>
+                        Co-&pi;-tree is evaluated in Overcooked-AI across five layouts and
+                        both role assignments. Baselines include SP, PBT, FCP, MEP, COLE,
+                        BC, ProAgent, and CausalPlan.
+                    </p>
+
+                    <div class="media-container">
+                        <img src="assets/images/results-box.png" alt="Human-agent reward box plots">
+                        <div class="caption">
+                            Human-agent collaboration rewards by layout. The full method
+                            obtains the highest mean reward on all five layouts among the
+                            full method and ablation variants.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="gradient-divider">
+
+        <section class="section-alternate">
+            <div class="container">
+                <h2>Efficiency</h2>
+                <div class="content">
+                    <div class="research-question">
+                        Q2: Can an LLM-generated policy tree reduce online reasoning cost?
+                    </div>
+                    <p>
+                        Online LLM baselines require repeated model calls during interaction.
+                        Co-&pi;-tree uses LLMs during policy construction and refinement; once
+                        the final tree is produced, additional evaluations do not require
+                        extra LLM queries.
+                    </p>
+                    <div class="media-container narrow-media">
+                        <img src="assets/images/results-query-latency.png" alt="LLM query and latency comparison">
+                        <div class="caption">
+                            Co-&pi;-tree reduces the number of LLM queries by 77.7% and
+                            test-time latency by 97.1% relative to the mean of the online
+                            LLM baselines.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="gradient-divider">
+
+        <section class="section">
+            <div class="container">
+                <h2>Refinement and Transfer</h2>
+                <div class="content">
+                    <div class="grid two">
+                        <div class="card">
+                            <h3>Iterative Refinement</h3>
+                            <p>Language feedback identifies failed or inefficient branches and guides localized revisions.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Layout Transfer</h3>
+                            <p>Policy-tree behavior is inspected across layouts to understand transfer and specialization.</p>
+                        </div>
+                    </div>
+
+                    <div class="media-container">
+                        <img src="assets/images/refinement-growth.png" alt="Reward growth across refinement rounds">
+                        <div class="caption">Reward growth during iterative policy refinement.</div>
+                    </div>
+                    <div class="media-container">
+                        <img src="assets/images/layout-transfer.png" alt="Layout transfer heatmap">
+                        <div class="caption">Layout transfer heatmap from the paper.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <p>&copy; 2026 Co-&pi;-tree Project.</p>
+            </div>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

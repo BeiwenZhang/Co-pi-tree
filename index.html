@@ -1,291 +1,186 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Co-pi-tree: Interpretable Policy Trees for Human-AI Collaboration</title>
-    <meta
-      name="description"
-      content="Project page for Distilling LLM Reasoning into an Interpretable Policy Tree for Human-AI Collaboration."
-    >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Co-pi-tree: Distilling LLM Reasoning into an Interpretable Policy Tree for Human-AI Collaboration">
+    <title>Co-pi-tree: Overview</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <a class="brand" href="#top">Co-&pi;-tree</a>
-      <nav aria-label="Primary navigation">
-        <a href="#overview">Overview</a>
-        <a href="#method">Method</a>
-        <a href="#videos">Videos</a>
-        <a href="#results">Results</a>
-        <a href="#bibtex">BibTeX</a>
-      </nav>
-    </header>
+</head>
+<body>
+    <div class="navbar">
+        <a class="nav-brand" href="index.html">Co-&pi;-tree</a>
+        <nav aria-label="Main navigation">
+            <a href="index.html" class="active">Overview</a>
+            <a href="method.html">Method</a>
+            <a href="results.html">Results</a>
+            <a href="video.html">Video</a>
+            <a href="conclusion.html">Conclusion</a>
+            <a href="reference.html">Reference</a>
+        </nav>
+    </div>
 
-    <main id="top">
-      <section class="hero">
-        <div class="hero-copy">
-          <p class="eyebrow">Human-AI Collaboration · Overcooked-AI · Interpretable Policies</p>
-          <h1>Distilling LLM Reasoning into an Interpretable Policy Tree for Human-AI Collaboration</h1>
-          <p class="subtitle">
-            Co-&pi;-tree distills LLM coordination reasoning into executable policy trees:
-            fast enough for real-time collaboration, and explicit enough for branch-level
-            inspection and refinement.
-          </p>
-          <p class="authors">
-            Beiwen Zhang<sup>*</sup>, Yongheng Liang<sup>*</sup>, Guowei Zou,
-            Haitao Wang, Hejun Wu<sup>&dagger;</sup>
-          </p>
-          <p class="affiliation">Sun Yat-sen University</p>
-          <div class="actions">
-            <a class="button primary" href="assets/papers/copitree.pdf">Paper</a>
-            <a class="button" href="#videos">Watch demos</a>
-            <a class="button" href="#bibtex">BibTeX</a>
-          </div>
-          <p class="note"><sup>*</sup> Equal contribution. <sup>&dagger;</sup> Corresponding author.</p>
-        </div>
-        <div class="hero-panel" aria-label="Key results">
-          <div class="metric">
-            <span>+35.4%</span>
-            <p>average reward over the baseline average</p>
-          </div>
-          <div class="metric">
-            <span>-77.7%</span>
-            <p>LLM queries during policy use</p>
-          </div>
-          <div class="metric">
-            <span>-97.1%</span>
-            <p>test-time latency</p>
-          </div>
-        </div>
-      </section>
+    <main class="page-main">
+        <header>
+            <div class="container">
+                <h1>Distilling LLM Reasoning into an Interpretable Policy Tree for Human-AI Collaboration</h1>
+                <div class="authors">
+                    <span>Beiwen Zhang<sup>*</sup></span>,
+                    <span>Yongheng Liang<sup>*</sup></span>,
+                    <span>Guowei Zou</span>,
+                    <span>Haitao Wang</span>,
+                    <span>Hejun Wu<sup>&dagger;</sup></span>
+                </div>
+                <div class="affiliation">Sun Yat-sen University</div>
+                <div class="author-note">
+                    <sup>*</sup> Equal contribution. <sup>&dagger;</sup> Corresponding author.
+                </div>
 
-      <section id="overview" class="section">
-        <div class="section-heading">
-          <p class="eyebrow">TL;DR</p>
-          <h2>LLM-level reasoning, tree-level execution.</h2>
-        </div>
-        <p class="lead">
-          Multi-agent reinforcement learning can produce strong but opaque policies, while
-          online LLM agents are slow and expensive. Co-&pi;-tree sits between those
-          extremes: it asks an LLM to construct interpretable policy-tree code, evaluates
-          that code with partners in Overcooked-AI, and uses natural language feedback to
-          repair problematic branches.
-        </p>
-        <div class="insight-grid">
-          <article class="insight-card">
-            <span>1</span>
-            <h3>Predict the partner</h3>
-            <p>A partner-behavior tree estimates what the teammate is likely to do from a readable scene state.</p>
-          </article>
-          <article class="insight-card">
-            <span>2</span>
-            <h3>Act complementarily</h3>
-            <p>An action-selection tree chooses the controlled agent's next action conditioned on that prediction.</p>
-          </article>
-          <article class="insight-card">
-            <span>3</span>
-            <h3>Repair weak branches</h3>
-            <p>Execution traces expose failed predictions or inefficient actions, then reflection revises local branches.</p>
-          </article>
-        </div>
-        <div class="image-frame flush">
-          <img src="assets/images/framework.png" alt="Framework of Co-pi-tree">
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="section-heading">
-          <p class="eyebrow">Motivation</p>
-          <h2>Policies should be fast enough to act and clear enough to inspect.</h2>
-          <p>
-            MARL policies execute quickly but hide their reasoning inside neural
-            parameters. Online LLM agents expose language reasoning, but repeated model
-            calls are too slow for smooth collaboration. Co-&pi;-tree uses LLMs while
-            learning and refinement happen, then deploys the final policy tree directly
-            during interaction.
-          </p>
-        </div>
-        <div class="image-frame wide flush">
-          <img src="assets/images/motivation.png" alt="Motivation illustration">
-        </div>
-      </section>
-
-      <section id="method" class="section method-section">
-        <div class="section-heading">
-          <p class="eyebrow">Method</p>
-          <h2>A closed-loop pipeline for executable, inspectable collaboration policies.</h2>
-        </div>
-        <div class="method-grid">
-          <article>
-            <h3>Policy construction</h3>
-            <p>
-              A planner first generates a partner-behavior prediction tree and then an
-              agent-action selection tree. A coder translates both into executable Python
-              while preserving explicit <code>if/elif</code> decision branches.
-            </p>
-          </article>
-          <article>
-            <h3>Environment grounding</h3>
-            <p>
-              Raw Overcooked-AI states are converted into textual semantic fields that
-              expose task progress, object status, and partner behavior. The executor maps
-              high-level tree actions to feasible movement and interaction commands.
-            </p>
-          </article>
-          <article>
-            <h3>Policy refinement</h3>
-            <p>
-              Candidate policies are evaluated through partner interaction. If a branch
-              causes poor coordination, a summarizer turns the trace into localized
-              reflection so the next planner call can revise that branch without changing
-              unrelated behavior.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section id="videos" class="section">
-        <div class="section-heading">
-          <p class="eyebrow">Demo Videos</p>
-          <h2>Rollouts and human-AI collaboration demos.</h2>
-          <p>
-            These slots are ready for the videos you will add later. Put the files in
-            <code>assets/videos/</code> with the names shown in each placeholder, and the
-            page will automatically show them.
-          </p>
-        </div>
-        <div class="video-grid" data-video-gallery>
-          <article class="video-card" data-video="assets/videos/cramped-room.mp4">
-            <div class="video-placeholder">
-              <span>Video pending</span>
-              <strong>cramped-room.mp4</strong>
+                <div class="links">
+                    <a href="assets/papers/copitree.pdf" class="btn" target="_blank" rel="noopener">
+                        <i data-lucide="file-text"></i><span>Paper</span>
+                    </a>
+                    <a href="video.html" class="btn">
+                        <i data-lucide="play-square"></i><span>Videos</span>
+                    </a>
+                    <a href="reference.html#citation" class="btn">
+                        <i data-lucide="quote"></i><span>BibTeX</span>
+                    </a>
+                </div>
             </div>
-            <h3>Cramped Room</h3>
-            <p>Compact layout requiring quick role specialization and handoff.</p>
-          </article>
-          <article class="video-card" data-video="assets/videos/coordination-ring.mp4">
-            <div class="video-placeholder">
-              <span>Video pending</span>
-              <strong>coordination-ring.mp4</strong>
-            </div>
-            <h3>Coordination Ring</h3>
-            <p>Longer-horizon movement coordination around a shared workspace.</p>
-          </article>
-          <article class="video-card" data-video="assets/videos/asymmetric-advantages.mp4">
-            <div class="video-placeholder">
-              <span>Video pending</span>
-              <strong>asymmetric-advantages.mp4</strong>
-            </div>
-            <h3>Asymmetric Advantages</h3>
-            <p>Partners benefit from distinct regions and complementary sub-tasks.</p>
-          </article>
-          <article class="video-card" data-video="assets/videos/counter-circuit.mp4">
-            <div class="video-placeholder">
-              <span>Video pending</span>
-              <strong>counter-circuit.mp4</strong>
-            </div>
-            <h3>Counter Circuit</h3>
-            <p>Counter placements create bottlenecks that reward readable intent.</p>
-          </article>
-          <article class="video-card" data-video="assets/videos/forced-coordination.mp4">
-            <div class="video-placeholder">
-              <span>Video pending</span>
-              <strong>forced-coordination.mp4</strong>
-            </div>
-            <h3>Forced Coordination</h3>
-            <p>Separated work areas make collaboration unavoidable.</p>
-          </article>
-          <article class="video-card" data-video="assets/videos/human-study.mp4">
-            <div class="video-placeholder">
-              <span>Video pending</span>
-              <strong>human-study.mp4</strong>
-            </div>
-            <h3>Human Partner Demo</h3>
-            <p>A placeholder for the human-AI interaction video.</p>
-          </article>
-        </div>
-      </section>
+        </header>
 
-      <section class="section">
-        <div class="section-heading">
-          <p class="eyebrow">Environment</p>
-          <h2>Five Overcooked-AI layouts.</h2>
-          <p>
-            Each episode lasts 400 environment steps. We evaluate zero-shot collaboration
-            across cramped room, coordination ring, counter circuit, asymmetric
-            advantages, and forced coordination layouts, covering bottlenecks, role
-            specialization, handoffs, and separated work areas.
-          </p>
-        </div>
-        <div class="image-frame flush">
-          <img src="assets/images/overcooked-layouts.jpg" alt="Five Overcooked-AI layouts">
-        </div>
-      </section>
+        <hr class="gradient-divider">
 
-      <section id="results" class="section">
-        <div class="section-heading">
-          <p class="eyebrow">Results</p>
-          <h2>Higher reward with fewer LLM calls.</h2>
-          <p>
-            Co-&pi;-tree is evaluated against MARL, imitation, and LLM-based baselines,
-            including SP, PBT, FCP, MEP, COLE, BC, ProAgent, and CausalPlan. It improves
-            reward across both AI-partner and human-partner settings while removing
-            repeated online LLM calls after the final tree is learned.
-          </p>
-        </div>
-        <div class="finding-grid">
-          <article>
-            <strong>AI partners</strong>
-            <p>Outperforms all baselines in 8 of 10 layout-role settings and improves average reward by 35.4%.</p>
-          </article>
-          <article>
-            <strong>Human partners</strong>
-            <p>Obtains the highest mean reward on all five human-study layouts among the full method and ablations.</p>
-          </article>
-          <article>
-            <strong>Efficiency</strong>
-            <p>Once the policy tree is produced, additional evaluations do not require extra LLM queries.</p>
-          </article>
-        </div>
-        <div class="results-grid">
-          <figure class="image-frame">
-            <img src="assets/images/results-box.png" alt="Reward comparison across layouts">
-            <figcaption>Average reward comparison across partner settings.</figcaption>
-          </figure>
-          <figure class="image-frame">
-            <img src="assets/images/results-query-latency.png" alt="Query and latency comparison">
-            <figcaption>LLM query and latency reduction at test time.</figcaption>
-          </figure>
-          <figure class="image-frame">
-            <img src="assets/images/refinement-growth.png" alt="Reward growth across refinement rounds">
-            <figcaption>Policy refinement improves problematic branches over iterations.</figcaption>
-          </figure>
-          <figure class="image-frame">
-            <img src="assets/images/layout-transfer.png" alt="Layout transfer heatmap">
-            <figcaption>Transfer behavior across layouts.</figcaption>
-          </figure>
-        </div>
-      </section>
+        <section class="section-alternate">
+            <div class="container">
+                <h2>Selected Rollout Slots</h2>
+                <p class="rollout-intro">
+                    Video placeholders are prepared for each Overcooked-AI layout. Add MP4
+                    files under <code>assets/videos/</code> and the cards will render them.
+                </p>
+                <div class="featured-video-grid">
+                    <article class="featured-video-card task-cramped" data-video="assets/videos/cramped-room.mp4">
+                        <div class="video-placeholder">cramped-room.mp4</div>
+                        <h3>Cramped Room</h3>
+                        <p>Compact layout requiring quick role specialization.</p>
+                    </article>
+                    <article class="featured-video-card task-ring" data-video="assets/videos/coordination-ring.mp4">
+                        <div class="video-placeholder">coordination-ring.mp4</div>
+                        <h3>Coordination Ring</h3>
+                        <p>Longer-horizon movement around a shared workspace.</p>
+                    </article>
+                    <article class="featured-video-card task-counter" data-video="assets/videos/counter-circuit.mp4">
+                        <div class="video-placeholder">counter-circuit.mp4</div>
+                        <h3>Counter Circuit</h3>
+                        <p>Readable intent matters around counter bottlenecks.</p>
+                    </article>
+                    <article class="featured-video-card task-forced" data-video="assets/videos/forced-coordination.mp4">
+                        <div class="video-placeholder">forced-coordination.mp4</div>
+                        <h3>Forced Coordination</h3>
+                        <p>Separated work areas force complementary actions.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-      <section id="bibtex" class="section bibtex">
-        <div class="section-heading">
-          <p class="eyebrow">Citation</p>
-          <h2>BibTeX</h2>
-        </div>
-        <pre><code>@misc{zhang2026copitree,
+        <hr class="gradient-divider">
+
+        <section class="section">
+            <div class="container">
+                <div class="content">
+                    <div class="tldr">
+                        <strong>TL;DR:</strong> Co-&pi;-tree converts LLM coordination
+                        reasoning into an <strong>executable policy tree</strong>. It
+                        uses a partner-behavior prediction tree and an agent-action
+                        selection tree, evaluates the generated policy through partner
+                        interaction, and refines problematic branches using natural
+                        language feedback.
+                    </div>
+
+                    <div class="research-question">
+                        Can we obtain executable policies for human-AI collaboration that
+                        preserve LLM-style coordination reasoning while requiring limited
+                        LLM queries and low test-time latency?
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="gradient-divider">
+
+        <section id="overview" class="section-white">
+            <div class="container">
+                <h2>Overview</h2>
+                <div class="content">
+                    <p>
+                        Existing zero-shot coordination methods often fall into two camps:
+                        MARL policies execute quickly but are difficult to interpret, while
+                        LLM-based agents expose language reasoning but query the model at
+                        every decision step. Co-&pi;-tree uses LLMs to construct and revise
+                        the policy, then executes the learned tree directly.
+                    </p>
+                    <div class="media-container">
+                        <img src="assets/images/motivation.png" alt="Motivation for Co-pi-tree">
+                        <div class="caption">
+                            MARL methods learn black-box policies; online LLM agents reason
+                            at every step; Co-&pi;-tree revises explicit branches during
+                            learning and deploys the final policy tree directly.
+                        </div>
+                    </div>
+                    <div class="media-container">
+                        <img src="assets/images/framework.png" alt="Co-pi-tree framework">
+                        <div class="caption">
+                            Co-&pi;-tree follows a closed-loop pipeline: policy construction,
+                            environment grounding, and policy refinement.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="gradient-divider">
+
+        <section class="section-white">
+            <div class="container">
+                <h2>Key Numbers</h2>
+                <div class="grid">
+                    <div class="card metric-card">
+                        <strong>+35.4%</strong>
+                        <p>average reward over the baseline average across AI-partner evaluations.</p>
+                    </div>
+                    <div class="card metric-card">
+                        <strong>-77.7%</strong>
+                        <p>LLM query reduction relative to online LLM baselines.</p>
+                    </div>
+                    <div class="card metric-card">
+                        <strong>-97.1%</strong>
+                        <p>test-time latency reduction after the policy tree is learned.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="citation" class="section-white">
+            <div class="container">
+                <h2>Citation</h2>
+                <pre class="citation">@misc{zhang2026copitree,
   title  = {Distilling LLM Reasoning into an Interpretable Policy Tree for Human-AI Collaboration},
   author = {Beiwen Zhang and Yongheng Liang and Guowei Zou and Haitao Wang and Hejun Wu},
   year   = {2026},
   note   = {Preprint}
-}</code></pre>
-      </section>
+}</pre>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <p>&copy; 2026 Co-&pi;-tree Project.</p>
+            </div>
+        </footer>
     </main>
 
-    <footer>
-      <p>Co-&pi;-tree · Project page scaffold. Add paper/code/video links when they are ready.</p>
-    </footer>
-
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
