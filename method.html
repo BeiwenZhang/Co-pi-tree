@@ -15,9 +15,9 @@
             <a href="index.html">Overview</a>
             <a href="method.html" class="active">Method</a>
             <a href="results.html">Results</a>
-            <a href="video.html">Video</a>
             <a href="conclusion.html">Conclusion</a>
-            <a href="reference.html">Reference</a>
+            <a href="video.html">video</a>
+            <a href="reference.html">reference</a>
         </nav>
     </div>
 
@@ -49,7 +49,7 @@
                         </div>
                     </div>
 
-                    <div class="media-container">
+                    <div class="media-container figure-wide tight">
                         <img src="assets/images/framework.png" alt="Co-pi-tree framework">
                         <div class="caption">
                             The pipeline learns an interpretable policy through construction,
@@ -67,6 +67,23 @@
                         <code>if/elif</code> branches.
                     </p>
 
+                    <div class="grid two">
+                        <div class="card">
+                            <h3>Partner Prediction Tree</h3>
+                            <p>
+                                Predicts likely partner behavior from a grounded scene state,
+                                recent interaction history, and task progress.
+                            </p>
+                        </div>
+                        <div class="card">
+                            <h3>Action Selection Tree</h3>
+                            <p>
+                                Chooses a complementary action conditioned on the same scene
+                                state and the predicted partner behavior.
+                            </p>
+                        </div>
+                    </div>
+
                     <h3>Environment Grounding</h3>
                     <p>
                         Tensor states are converted into readable semantic fields describing
@@ -83,6 +100,12 @@
                         this feedback into localized reflection, allowing the planner to
                         revise weak branches while preserving effective behavior elsewhere.
                     </p>
+
+                    <div class="research-question">
+                        The key design choice is branch-level credit assignment: feedback
+                        identifies which local prediction or action branch failed, instead
+                        of asking the LLM to rewrite the whole policy.
+                    </div>
 
                     <h3>Contributions</h3>
                     <ul>

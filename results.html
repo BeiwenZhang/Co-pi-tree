@@ -15,9 +15,9 @@
             <a href="index.html">Overview</a>
             <a href="method.html">Method</a>
             <a href="results.html" class="active">Results</a>
-            <a href="video.html">Video</a>
             <a href="conclusion.html">Conclusion</a>
-            <a href="reference.html">Reference</a>
+            <a href="video.html">video</a>
+            <a href="reference.html">reference</a>
         </nav>
     </div>
 
@@ -29,13 +29,17 @@
                     <div class="research-question">
                         Q1: How effectively does Co-&pi;-tree collaborate with unseen AI partners and real human partners?
                     </div>
+                    <p><strong>Answer:</strong> Co-&pi;-tree achieves strong zero-shot
+                        collaboration across the five Overcooked-AI layouts, including
+                        settings that require role specialization and partner-conditioned
+                        task switching.</p>
                     <p>
                         Co-&pi;-tree is evaluated in Overcooked-AI across five layouts and
                         both role assignments. Baselines include SP, PBT, FCP, MEP, COLE,
                         BC, ProAgent, and CausalPlan.
                     </p>
 
-                    <div class="media-container">
+                    <div class="media-container figure-wide tight">
                         <img src="assets/images/results-box.png" alt="Human-agent reward box plots">
                         <div class="caption">
                             Human-agent collaboration rewards by layout. The full method
@@ -56,13 +60,16 @@
                     <div class="research-question">
                         Q2: Can an LLM-generated policy tree reduce online reasoning cost?
                     </div>
+                    <p><strong>Answer:</strong> Yes. LLM calls are moved from every
+                        decision step to the offline policy-learning loop, so the final
+                        tree executes directly during interaction.</p>
                     <p>
                         Online LLM baselines require repeated model calls during interaction.
                         Co-&pi;-tree uses LLMs during policy construction and refinement; once
                         the final tree is produced, additional evaluations do not require
                         extra LLM queries.
                     </p>
-                    <div class="media-container narrow-media">
+                    <div class="media-container narrow-media tight">
                         <img src="assets/images/results-query-latency.png" alt="LLM query and latency comparison">
                         <div class="caption">
                             Co-&pi;-tree reduces the number of LLM queries by 77.7% and
@@ -80,6 +87,9 @@
             <div class="container">
                 <h2>Refinement and Transfer</h2>
                 <div class="content">
+                    <div class="research-question">
+                        Q3: How do refinement and layout transfer reveal the behavior of the policy tree?
+                    </div>
                     <div class="grid two">
                         <div class="card">
                             <h3>Iterative Refinement</h3>
@@ -91,11 +101,11 @@
                         </div>
                     </div>
 
-                    <div class="media-container">
+                    <div class="media-container figure-wide tight">
                         <img src="assets/images/refinement-growth.png" alt="Reward growth across refinement rounds">
                         <div class="caption">Reward growth during iterative policy refinement.</div>
                     </div>
-                    <div class="media-container">
+                    <div class="media-container figure-wide tight">
                         <img src="assets/images/layout-transfer.png" alt="Layout transfer heatmap">
                         <div class="caption">Layout transfer heatmap from the paper.</div>
                     </div>

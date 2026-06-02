@@ -15,9 +15,9 @@
             <a href="index.html" class="active">Overview</a>
             <a href="method.html">Method</a>
             <a href="results.html">Results</a>
-            <a href="video.html">Video</a>
             <a href="conclusion.html">Conclusion</a>
-            <a href="reference.html">Reference</a>
+            <a href="video.html">video</a>
+            <a href="reference.html">reference</a>
         </nav>
     </div>
 
@@ -55,29 +55,29 @@
 
         <section class="section-alternate">
             <div class="container">
-                <h2>Selected Rollout Slots</h2>
+                <h2>Selected Rollout Loops</h2>
                 <p class="rollout-intro">
-                    Video placeholders are prepared for each Overcooked-AI layout. Add MP4
-                    files under <code>assets/videos/</code> and the cards will render them.
+                    Compact qualitative demos for Overcooked-AI layouts and partner-aware
+                    policy-tree behavior.
                 </p>
                 <div class="featured-video-grid">
                     <article class="featured-video-card task-cramped" data-video="assets/videos/cramped-room.mp4">
-                        <div class="video-placeholder">cramped-room.mp4</div>
+                        <div class="video-placeholder">Video pending</div>
                         <h3>Cramped Room</h3>
                         <p>Compact layout requiring quick role specialization.</p>
                     </article>
                     <article class="featured-video-card task-ring" data-video="assets/videos/coordination-ring.mp4">
-                        <div class="video-placeholder">coordination-ring.mp4</div>
+                        <div class="video-placeholder">Video pending</div>
                         <h3>Coordination Ring</h3>
                         <p>Longer-horizon movement around a shared workspace.</p>
                     </article>
                     <article class="featured-video-card task-counter" data-video="assets/videos/counter-circuit.mp4">
-                        <div class="video-placeholder">counter-circuit.mp4</div>
+                        <div class="video-placeholder">Video pending</div>
                         <h3>Counter Circuit</h3>
                         <p>Readable intent matters around counter bottlenecks.</p>
                     </article>
                     <article class="featured-video-card task-forced" data-video="assets/videos/forced-coordination.mp4">
-                        <div class="video-placeholder">forced-coordination.mp4</div>
+                        <div class="video-placeholder">Video pending</div>
                         <h3>Forced Coordination</h3>
                         <p>Separated work areas force complementary actions.</p>
                     </article>
@@ -121,7 +121,7 @@
                         every decision step. Co-&pi;-tree uses LLMs to construct and revise
                         the policy, then executes the learned tree directly.
                     </p>
-                    <div class="media-container">
+                    <div class="media-container figure-wide tight">
                         <img src="assets/images/motivation.png" alt="Motivation for Co-pi-tree">
                         <div class="caption">
                             MARL methods learn black-box policies; online LLM agents reason
@@ -129,11 +129,35 @@
                             learning and deploys the final policy tree directly.
                         </div>
                     </div>
-                    <div class="media-container">
+                    <div class="media-container figure-wide tight">
                         <img src="assets/images/framework.png" alt="Co-pi-tree framework">
                         <div class="caption">
                             Co-&pi;-tree follows a closed-loop pipeline: policy construction,
                             environment grounding, and policy refinement.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="gradient-divider">
+
+        <section class="section-alternate">
+            <div class="container">
+                <h2>Environment</h2>
+                <div class="content">
+                    <p>
+                        We evaluate in Overcooked-AI, a standard zero-shot coordination
+                        benchmark where two agents cooperate to cook and deliver soups under
+                        different layout constraints. The five layouts stress different
+                        collaboration skills, including fast handoff, bottleneck avoidance,
+                        role specialization, and forced interdependence.
+                    </p>
+                    <div class="media-container figure-wide tight">
+                        <img src="assets/images/overcooked-layouts.jpg" alt="Five Overcooked-AI layouts">
+                        <div class="caption">
+                            The benchmark layouts are Cramped Room, Coordination Ring,
+                            Counter Circuit, Asymmetric Advantages, and Forced Coordination.
                         </div>
                     </div>
                 </div>
@@ -161,6 +185,8 @@
                 </div>
             </div>
         </section>
+
+        <hr class="gradient-divider">
 
         <section id="citation" class="section-white">
             <div class="container">
