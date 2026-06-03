@@ -24,27 +24,37 @@
     <main class="page-main">
         <section class="section">
             <div class="container">
-                <h2>Benchmark Results</h2>
+                <h2>Experimental Setup</h2>
                 <div class="content">
                     <div class="research-question">
-                        Q1: How effectively does Co-&pi;-tree collaborate with unseen AI partners and real human partners?
+                        We evaluate whether an interpretable policy tree can collaborate
+                        with unseen AI partners and real human partners while avoiding
+                        online LLM calls at every decision step.
                     </div>
-                    <p><strong>Answer:</strong> Co-&pi;-tree achieves strong zero-shot
-                        collaboration across the five Overcooked-AI layouts, including
-                        settings that require role specialization and partner-conditioned
-                        task switching.</p>
                     <p>
-                        Co-&pi;-tree is evaluated in Overcooked-AI across five layouts and
-                        both role assignments. Baselines include SP, PBT, FCP, MEP, COLE,
-                        BC, ProAgent, and CausalPlan.
+                        The benchmark contains five Overcooked-AI layouts: Cramped Room,
+                        Coordination Ring, Counter Circuit, Asymmetric Advantages, and
+                        Forced Coordination. Each episode lasts 400 environment steps, and
+                        team reward is determined by delivered soups.
                     </p>
-
                     <div class="media-container figure-wide tight">
-                        <img src="assets/images/results-box.png" alt="Human-agent reward box plots">
+                        <img src="assets/images/overcooked-layouts.jpg" alt="Five Overcooked-AI layouts">
                         <div class="caption">
-                            Human-agent collaboration rewards by layout. The full method
-                            obtains the highest mean reward on all five layouts among the
-                            full method and ablation variants.
+                            Overcooked-AI layouts used in the evaluation.
+                        </div>
+                    </div>
+                    <div class="grid">
+                        <div class="card">
+                            <h3>AI Partners</h3>
+                            <p>SP, PBT, FCP, MEP, COLE, and BC are used as held-out partner policies.</p>
+                        </div>
+                        <div class="card">
+                            <h3>LLM Baselines</h3>
+                            <p>ProAgent and CausalPlan represent online LLM-based collaboration methods.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Variants</h3>
+                            <p>Co-&pi;-tree is compared with variants that remove explicit partner use or refinement.</p>
                         </div>
                     </div>
                 </div>
@@ -55,26 +65,161 @@
 
         <section class="section-alternate">
             <div class="container">
-                <h2>Efficiency</h2>
+                <h2>AI Partner Results</h2>
                 <div class="content">
                     <div class="research-question">
-                        Q2: Can an LLM-generated policy tree reduce online reasoning cost?
+                        Q1: How effectively does Co-&pi;-tree collaborate with unseen AI partners?
                     </div>
-                    <p><strong>Answer:</strong> Yes. LLM calls are moved from every
-                        decision step to the offline policy-learning loop, so the final
-                        tree executes directly during interaction.</p>
-                    <p>
-                        Online LLM baselines require repeated model calls during interaction.
-                        Co-&pi;-tree uses LLMs during policy construction and refinement; once
-                        the final tree is produced, additional evaluations do not require
-                        extra LLM queries.
-                    </p>
+                    <p><strong>Answer:</strong> Co-&pi;-tree outperforms all baselines in
+                        8 of 10 layout-role settings and improves average reward by 35.4%
+                        over the baseline average.</p>
+
+                    <div class="data-table-card">
+                        <div class="data-table-title">Table 1: ZSC With AI Partners</div>
+                        <p class="data-table-caption">
+                            Mean team reward &plusmn; standard deviation. P0/P1 indicate which
+                            player role is controlled by the evaluated policy.
+                        </p>
+                        <div class="data-table-wrap">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Layout / Role</th>
+                                        <th>SP</th>
+                                        <th>PBT</th>
+                                        <th>FCP</th>
+                                        <th>MEP</th>
+                                        <th>COLE</th>
+                                        <th>BC</th>
+                                        <th>ProAgent</th>
+                                        <th>CausalPlan</th>
+                                        <th>Co-&pi;-tree</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Cramped Rm. P0</td><td>155.0 &plusmn; 43</td><td>161.3 &plusmn; 45</td><td class="second">175.8 &plusmn; 30</td><td>161.3 &plusmn; 42</td><td>153.8 &plusmn; 29</td><td>131.3 &plusmn; 37</td><td>171.0 &plusmn; 26</td><td>174.5 &plusmn; 20</td><td class="best">182.3 &plusmn; 18</td></tr>
+                                    <tr><td>Cramped Rm. P1</td><td>157.5 &plusmn; 32</td><td>158.8 &plusmn; 53</td><td class="second">170.3 &plusmn; 33</td><td>168.8 &plusmn; 35</td><td>153.8 &plusmn; 37</td><td>130.0 &plusmn; 37</td><td>168.3 &plusmn; 18</td><td>170.2 &plusmn; 16</td><td class="best">180.1 &plusmn; 16</td></tr>
+                                    <tr><td>Coord. Ring P0</td><td>103.8 &plusmn; 49</td><td>118.8 &plusmn; 39</td><td>136.3 &plusmn; 28</td><td>152.0 &plusmn; 21</td><td>150.3 &plusmn; 32</td><td>96.3 &plusmn; 37</td><td>151.0 &plusmn; 34</td><td class="second">155.7 &plusmn; 24</td><td class="best">165.9 &plusmn; 28</td></tr>
+                                    <tr><td>Coord. Ring P1</td><td>127.5 &plusmn; 49</td><td>127.5 &plusmn; 37</td><td>137.5 &plusmn; 24</td><td>140.0 &plusmn; 39</td><td>144.0 &plusmn; 31</td><td>96.3 &plusmn; 41</td><td>143.3 &plusmn; 28</td><td class="second">152.0 &plusmn; 26</td><td class="best">162.1 &plusmn; 24</td></tr>
+                                    <tr><td>CT. Circuit P0</td><td>30.0 &plusmn; 33</td><td>43.8 &plusmn; 49</td><td>42.5 &plusmn; 45</td><td>53.8 &plusmn; 35</td><td>85.0 &plusmn; 30</td><td>47.5 &plusmn; 35</td><td>108.3 &plusmn; 24</td><td class="second">108.8 &plusmn; 21</td><td class="best">117.8 &plusmn; 15</td></tr>
+                                    <tr><td>CT. Circuit P1</td><td>36.3 &plusmn; 26</td><td>35.0 &plusmn; 39</td><td>37.5 &plusmn; 45</td><td>65.0 &plusmn; 41</td><td>86.3 &plusmn; 34</td><td>40.0 &plusmn; 35</td><td class="second">106.0 &plusmn; 19</td><td>104.9 &plusmn; 21</td><td class="best">116.0 &plusmn; 17</td></tr>
+                                    <tr><td>Asymm. Adv. P0</td><td>151.3 &plusmn; 60</td><td>147.5 &plusmn; 73</td><td>141.3 &plusmn; 68</td><td>116.3 &plusmn; 74</td><td>187.5 &plusmn; 46</td><td>150.0 &plusmn; 56</td><td class="second">256.7 &plusmn; 31</td><td>250.4 &plusmn; 25</td><td class="best">274.6 &plusmn; 31</td></tr>
+                                    <tr><td>Asymm. Adv. P1</td><td>190.0 &plusmn; 32</td><td>136.3 &plusmn; 76</td><td>170.0 &plusmn; 46</td><td>177.5 &plusmn; 59</td><td>150.0 &plusmn; 70</td><td>82.5 &plusmn; 75</td><td>228.3 &plusmn; 15</td><td class="second">228.6 &plusmn; 20</td><td class="best">239.1 &plusmn; 18</td></tr>
+                                    <tr><td>Forced Coord. P0</td><td>12.5 &plusmn; 17</td><td>21.3 &plusmn; 22</td><td>56.3 &plusmn; 42</td><td>23.8 &plusmn; 25</td><td>40.0 &plusmn; 32</td><td>40.0 &plusmn; 23</td><td>56.7 &plusmn; 22</td><td class="best">64.3 &plusmn; 25</td><td class="second">62.7 &plusmn; 31</td></tr>
+                                    <tr><td>Forced Coord. P1</td><td>28.8 &plusmn; 25</td><td class="best">61.3 &plusmn; 42</td><td>18.8 &plusmn; 26</td><td>35.0 &plusmn; 32</td><td class="second">41.3 &plusmn; 24</td><td>21.3 &plusmn; 22</td><td>33.3 &plusmn; 34</td><td>34.5 &plusmn; 28</td><td>35.6 &plusmn; 22</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="gradient-divider">
+
+        <section class="section">
+            <div class="container">
+                <h2>Human Partners and Efficiency</h2>
+                <div class="content">
+                    <div class="research-question">
+                        Q2: Does the policy tree preserve collaboration quality while reducing online reasoning cost?
+                    </div>
+                    <p><strong>Answer:</strong> Human-agent results show the full method
+                        has the highest mean reward on all five layouts among the full
+                        method and ablations. Efficiency results show 77.7% fewer LLM
+                        queries and 97.1% lower test-time latency than online LLM baselines.</p>
+
+                    <div class="media-container figure-wide tight">
+                        <img src="assets/images/results-box.png" alt="Human-agent reward box plots">
+                        <div class="caption">
+                            Human-agent collaboration rewards by layout. Boxes aggregate
+                            per-volunteer averages over the two player-role assignments.
+                        </div>
+                    </div>
+
                     <div class="media-container narrow-media tight">
                         <img src="assets/images/results-query-latency.png" alt="LLM query and latency comparison">
                         <div class="caption">
-                            Co-&pi;-tree reduces the number of LLM queries by 77.7% and
-                            test-time latency by 97.1% relative to the mean of the online
-                            LLM baselines.
+                            Query and latency comparison against ProAgent and CausalPlan.
+                            After learning, Co-&pi;-tree executes the policy tree directly.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="gradient-divider">
+
+        <section class="section-alternate">
+            <div class="container">
+                <h2>Ablation Studies</h2>
+                <div class="content">
+                    <div class="research-question">
+                        Q3: Which components matter: partner-behavior prediction,
+                        partner-conditioned action selection, and iterative refinement?
+                    </div>
+
+                    <div class="data-table-card">
+                        <div class="data-table-title">Table 2: Partner Prediction Ablation</div>
+                        <p class="data-table-caption">
+                            Co-&pi;-tree-PI keeps partner prediction as intermediate reasoning
+                            but does not explicitly condition action selection on the
+                            predicted behavior. Co-&pi;-tree-w/o P removes partner prediction.
+                        </p>
+                        <div class="data-table-wrap">
+                            <table class="data-table compact">
+                                <thead>
+                                    <tr>
+                                        <th>Layout / Role</th>
+                                        <th>Co-&pi;-tree</th>
+                                        <th>Co-&pi;-tree-PI</th>
+                                        <th>Co-&pi;-tree-w/o P</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Cramped Rm. P0</td><td class="best">182.3 &plusmn; 18</td><td class="second">176.7 &plusmn; 24</td><td>168.0 &plusmn; 25</td></tr>
+                                    <tr><td>Cramped Rm. P1</td><td class="best">180.1 &plusmn; 16</td><td class="second">176.0 &plusmn; 19</td><td>165.7 &plusmn; 22</td></tr>
+                                    <tr><td>Coord. Ring P0</td><td class="second">165.9 &plusmn; 28</td><td class="best">168.0 &plusmn; 26</td><td>158.0 &plusmn; 29</td></tr>
+                                    <tr><td>Coord. Ring P1</td><td class="second">162.1 &plusmn; 24</td><td class="best">169.3 &plusmn; 23</td><td>152.0 &plusmn; 25</td></tr>
+                                    <tr><td>CT. Circuit P0</td><td class="best">117.8 &plusmn; 15</td><td class="second">110.7 &plusmn; 16</td><td>106.0 &plusmn; 18</td></tr>
+                                    <tr><td>CT. Circuit P1</td><td class="best">116.0 &plusmn; 17</td><td class="second">114.0 &plusmn; 18</td><td>105.2 &plusmn; 21</td></tr>
+                                    <tr><td>Asymm. Adv. P0</td><td class="second">274.6 &plusmn; 31</td><td class="best">282.7 &plusmn; 35</td><td>266.7 &plusmn; 34</td></tr>
+                                    <tr><td>Asymm. Adv. P1</td><td class="second">239.1 &plusmn; 18</td><td class="best">242.0 &plusmn; 15</td><td>234.7 &plusmn; 22</td></tr>
+                                    <tr><td>Forced Coord. P0</td><td class="second">62.7 &plusmn; 31</td><td class="best">66.0 &plusmn; 24</td><td>62.0 &plusmn; 28</td></tr>
+                                    <tr><td>Forced Coord. P1</td><td class="second">35.6 &plusmn; 22</td><td class="best">44.1 &plusmn; 26</td><td>32.8 &plusmn; 23</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="data-table-card">
+                        <div class="data-table-title">Table 3: Iterative Refinement Ablation</div>
+                        <p class="data-table-caption">
+                            Removing refinement uses only the initial prompt construction.
+                            The full loop usually repairs weak branches and improves reward.
+                        </p>
+                        <div class="data-table-wrap">
+                            <table class="data-table compact">
+                                <thead>
+                                    <tr>
+                                        <th>Layout / Role</th>
+                                        <th>Co-&pi;-tree</th>
+                                        <th>Co-&pi;-tree w/o R</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Cramped Rm. P0</td><td class="best">182.3 &plusmn; 18</td><td>163.1 &plusmn; 16</td></tr>
+                                    <tr><td>Cramped Rm. P1</td><td class="best">180.1 &plusmn; 16</td><td>161.5 &plusmn; 22</td></tr>
+                                    <tr><td>Coord. Ring P0</td><td class="best">165.9 &plusmn; 28</td><td>153.8 &plusmn; 29</td></tr>
+                                    <tr><td>Coord. Ring P1</td><td class="best">162.1 &plusmn; 24</td><td>148.3 &plusmn; 27</td></tr>
+                                    <tr><td>CT. Circuit P0</td><td class="best">117.8 &plusmn; 15</td><td>104.0 &plusmn; 18</td></tr>
+                                    <tr><td>CT. Circuit P1</td><td class="best">116.0 &plusmn; 17</td><td>100.7 &plusmn; 16</td></tr>
+                                    <tr><td>Asymm. Adv. P0</td><td class="best">274.6 &plusmn; 31</td><td>260.3 &plusmn; 25</td></tr>
+                                    <tr><td>Asymm. Adv. P1</td><td class="best">239.1 &plusmn; 18</td><td>226.6 &plusmn; 22</td></tr>
+                                    <tr><td>Forced Coord. P0</td><td>62.7 &plusmn; 31</td><td class="best">66.8 &plusmn; 29</td></tr>
+                                    <tr><td>Forced Coord. P1</td><td>35.6 &plusmn; 22</td><td class="best">35.8 &plusmn; 23</td></tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -88,26 +233,22 @@
                 <h2>Refinement and Transfer</h2>
                 <div class="content">
                     <div class="research-question">
-                        Q3: How do refinement and layout transfer reveal the behavior of the policy tree?
+                        Additional experiments inspect how accepted rewards grow over
+                        refinement iterations and how policy trees transfer across layouts.
                     </div>
-                    <div class="grid two">
-                        <div class="card">
-                            <h3>Iterative Refinement</h3>
-                            <p>Language feedback identifies failed or inefficient branches and guides localized revisions.</p>
-                        </div>
-                        <div class="card">
-                            <h3>Layout Transfer</h3>
-                            <p>Policy-tree behavior is inspected across layouts to understand transfer and specialization.</p>
-                        </div>
-                    </div>
-
                     <div class="media-container figure-wide tight">
                         <img src="assets/images/refinement-growth.png" alt="Reward growth across refinement rounds">
-                        <div class="caption">Reward growth during iterative policy refinement.</div>
+                        <div class="caption">
+                            Accepted reward trajectories over 10 refinement iterations
+                            across five Overcooked-AI layouts.
+                        </div>
                     </div>
                     <div class="media-container figure-wide tight">
                         <img src="assets/images/layout-transfer.png" alt="Layout transfer heatmap">
-                        <div class="caption">Layout transfer heatmap from the paper.</div>
+                        <div class="caption">
+                            Cross-layout transfer heatmaps for SP, ProAgent, and
+                            Co-&pi;-tree, reported as normalized transfer retention.
+                        </div>
                     </div>
                 </div>
             </div>
