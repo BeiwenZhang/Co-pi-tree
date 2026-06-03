@@ -5,13 +5,13 @@
         }
 
         :root {
-            --blue: #4169e1;
-            --orange: #ff4500;
-            --red: #d82121;
-            --ink: #111111;
-            --muted: #666666;
-            --panel: #f5f5f5;
-            --line: #e6e8ec;
+            --blue: #0f766e;
+            --orange: #84cc16;
+            --red: #15803d;
+            --ink: #102018;
+            --muted: #5f7168;
+            --panel: #f2fbf6;
+            --line: #dbeee2;
         }
 
         html {
@@ -22,7 +22,7 @@
             font-family: Avenir, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             line-height: 1.6;
             color: var(--ink);
-            background: #ffffff;
+            background: #fbfefc;
             padding-top: 45px;
         }
 
@@ -43,14 +43,14 @@
             left: 0;
             right: 0;
             height: 45px;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(251, 254, 252, 0.95);
             backdrop-filter: blur(10px);
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            border-bottom: 1px solid rgba(65, 105, 225, 0.12);
+            border-bottom: 1px solid rgba(21, 128, 61, 0.14);
         }
 
         .navbar nav {
@@ -62,7 +62,7 @@
 
         .navbar nav a {
             padding: 12px 18px;
-            color: #808080;
+            color: #64766b;
             text-decoration: none;
             font-size: 15px;
             font-weight: 500;
@@ -72,8 +72,8 @@
         }
 
         .navbar nav a:hover {
-            color: orange;
-            border-bottom-color: orange;
+            color: #4d7c0f;
+            border-bottom-color: #84cc16;
         }
 
         .navbar nav a.active {
@@ -84,7 +84,7 @@
         header {
             padding: 34px 20px 24px;
             text-align: center;
-            background: #ffffff;
+            background: #fbfefc;
         }
 
         h1 {
@@ -93,7 +93,7 @@
             font-weight: 800;
             line-height: 1.125;
             max-width: 1050px;
-            background: linear-gradient(45deg, red, var(--blue), var(--orange), var(--blue), red);
+            background: linear-gradient(45deg, #14532d, var(--blue), var(--orange), #22c55e, #14532d);
             background-size: 300% 100%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -123,13 +123,13 @@
         }
 
         a {
-            color: #5732d1;
+            color: #047857;
         }
 
         .subtitle {
             font-size: 2.05rem;
             margin-bottom: 1.4rem;
-            color: #363636;
+            color: #20372a;
             font-weight: 700;
             line-height: 1.125;
         }
@@ -181,7 +181,7 @@
             gap: 0.5em;
             min-height: 42px;
             padding: 0.5em 1em;
-            background: #363636;
+            background: #14532d;
             color: #ffffff;
             text-decoration: none;
             border-radius: 999px;
@@ -194,7 +194,7 @@
         }
 
         .btn:hover {
-            background: #292929;
+            background: #0f3d25;
             color: #ffffff;
             transform: translateY(-1px);
         }
@@ -207,7 +207,7 @@
 
         .gradient-divider {
             height: 2px;
-            background: linear-gradient(90deg, transparent, var(--blue) 20%, var(--orange) 50%, var(--blue) 80%, transparent);
+            background: linear-gradient(90deg, transparent, #0f766e 20%, #84cc16 50%, #22c55e 80%, transparent);
             margin: 0;
             border: none;
         }
@@ -220,17 +220,17 @@
         }
 
         .section-white {
-            background: #ffffff;
+            background: #fbfefc;
         }
 
         .section-alternate {
-            background: linear-gradient(180deg, rgba(235, 235, 235, 0.3) 0%, rgba(235, 235, 235, 1) 50%, rgba(235, 235, 235, 0.3) 100%);
+            background: linear-gradient(180deg, rgba(236, 253, 245, 0.38) 0%, rgba(220, 252, 231, 0.8) 50%, rgba(236, 253, 245, 0.38) 100%);
         }
 
         .content {
             line-height: 1.7;
             font-size: 16px;
-            color: #000000;
+            color: #102018;
         }
 
         .tldr {
@@ -245,23 +245,23 @@
         }
 
         .highlight {
-            background: linear-gradient(90deg, #ffd700, #ffa500);
+            background: linear-gradient(90deg, #dcfce7, #bef264);
             padding: 2px 6px;
             border-radius: 3px;
             font-weight: 750;
-            color: #000000;
+            color: #14532d;
         }
 
         .research-question {
-            color: #c7254e;
+            color: #166534;
             font-weight: 750;
             font-size: 1.12em;
             margin: 22px 0 15px;
             padding: 18px 22px;
-            background: linear-gradient(135deg, #fff5f5 0%, #ffe5e5 100%);
-            border-left: 4px solid #c7254e;
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border-left: 4px solid #22c55e;
             border-radius: 6px;
-            box-shadow: 0 2px 8px rgba(199, 37, 78, 0.1);
+            box-shadow: 0 2px 8px rgba(21, 128, 61, 0.1);
         }
 
         .media-container {
@@ -275,7 +275,7 @@
             border-radius: 10px;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            background: #ffffff;
+            background: #fbfefc;
         }
 
         .media-container img:hover {
@@ -305,7 +305,7 @@
             background: #ffffff;
             padding: 16px;
             border-radius: 8px;
-            border: 2px solid #e9ecef;
+            border: 2px solid #dbeee2;
             transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
@@ -313,7 +313,7 @@
         .card:hover {
             border-color: var(--blue);
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(65, 105, 225, 0.2);
+            box-shadow: 0 8px 20px rgba(21, 128, 61, 0.18);
         }
 
         .card h3 {
@@ -372,7 +372,7 @@
             padding: 10px;
             background: #ffffff;
             box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-            border: 1px solid #e8edf3;
+            border: 1px solid #dbeee2;
         }
 
         .paper-table-image {
@@ -393,7 +393,7 @@
             border-left: 4px solid var(--blue);
             overflow-x: auto;
             white-space: pre-wrap;
-            border: 1px solid #dbdbdb;
+            border: 1px solid #dbeee2;
         }
 
         .resource-list {
@@ -419,7 +419,7 @@
         .resource-link:hover {
             border-color: var(--orange);
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(255, 69, 0, 0.12);
+            box-shadow: 0 8px 20px rgba(132, 204, 22, 0.16);
         }
 
         .resource-link svg {
@@ -495,7 +495,7 @@
 
         .rollout-group-header .rollout-view-note {
             margin-top: 4px;
-            color: #5732d1;
+            color: #047857;
             font-size: 0.84rem;
             font-weight: 650;
         }
@@ -704,23 +704,23 @@
             line-height: 1.35;
         }
 
-        .task-spread { --task-color: #2563eb; }
-        .task-tag { --task-color: #dc2626; }
-        .task-world { --task-color: #7c3aed; }
+        .task-spread { --task-color: #0f766e; }
+        .task-tag { --task-color: #16a34a; }
+        .task-world { --task-color: #65a30d; }
         .task-3m { --task-color: #059669; }
-        .task-8m { --task-color: #d97706; }
-        .task-2s3z { --task-color: #0891b2; }
-        .task-5m6m { --task-color: #db2777; }
-        .task-2ant { --task-color: #4f46e5; }
-        .task-4ant { --task-color: #16a34a; }
+        .task-8m { --task-color: #84cc16; }
+        .task-2s3z { --task-color: #0d9488; }
+        .task-5m6m { --task-color: #4d7c0f; }
+        .task-2ant { --task-color: #047857; }
+        .task-4ant { --task-color: #22c55e; }
 
         footer {
             text-align: center;
             padding: 40px 20px;
             color: var(--muted);
             margin-top: 50px;
-            background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
-            border-top: 1px solid #e9ecef;
+            background: linear-gradient(180deg, #ffffff 0%, #f0fdf4 100%);
+            border-top: 1px solid #dbeee2;
         }
 
         @media (max-width: 900px) {
@@ -826,8 +826,8 @@
             flex-direction: column;
             justify-content: flex-start;
             align-items: stretch;
-            background: linear-gradient(180deg, #ffffff 0%, #f7f9ff 46%, #fff7f1 100%);
-            border-right: 1px solid rgba(65, 105, 225, 0.22);
+            background: linear-gradient(180deg, #ffffff 0%, #f0fdf4 46%, #ecfdf5 100%);
+            border-right: 1px solid rgba(21, 128, 61, 0.22);
             border-bottom: 0;
             box-shadow: 8px 0 28px rgba(17, 24, 39, 0.1);
         }
@@ -844,14 +844,14 @@
             letter-spacing: 0;
             border: 0;
             border-radius: 10px;
-            background: linear-gradient(135deg, var(--red), var(--blue) 58%, var(--orange));
-            box-shadow: 0 10px 24px rgba(65, 105, 225, 0.24);
+            background: linear-gradient(135deg, #14532d, #0f766e 58%, #84cc16);
+            box-shadow: 0 10px 24px rgba(21, 128, 61, 0.24);
         }
 
         .navbar .nav-brand:hover {
             color: #ffffff;
             border: 0;
-            background: linear-gradient(135deg, var(--red), var(--blue) 58%, var(--orange));
+            background: linear-gradient(135deg, #14532d, #0f766e 58%, #84cc16);
             transform: none;
         }
 
@@ -871,9 +871,9 @@
             align-items: center;
             min-height: 44px;
             padding: 11px 38px 11px 14px;
-            color: #2f3542;
-            background: rgba(255, 255, 255, 0.78);
-            border: 1px solid rgba(65, 105, 225, 0.12);
+            color: #214332;
+            background: rgba(255, 255, 255, 0.82);
+            border: 1px solid rgba(21, 128, 61, 0.13);
             border-left: 5px solid transparent;
             border-bottom: 0;
             border-radius: 10px;
@@ -895,11 +895,11 @@
         }
 
         .navbar nav a:hover {
-            color: #9a3412;
+            color: #365314;
             background: #ffffff;
             border-left-color: var(--orange);
             border-bottom-color: transparent;
-            box-shadow: 0 8px 18px rgba(255, 69, 0, 0.16);
+            box-shadow: 0 8px 18px rgba(132, 204, 22, 0.18);
             transform: translateX(4px);
         }
 
@@ -909,12 +909,12 @@
         }
 
         .navbar nav a.active {
-            color: #7f1d1d;
+            color: #14532d;
             background: #ffffff;
-            border-color: rgba(216, 33, 33, 0.28);
+            border-color: rgba(21, 128, 61, 0.28);
             border-left-color: var(--red);
             border-bottom-color: transparent;
-            box-shadow: 0 10px 22px rgba(216, 33, 33, 0.18);
+            box-shadow: 0 10px 22px rgba(21, 128, 61, 0.18);
         }
 
         .navbar nav a.active::after {
@@ -941,7 +941,7 @@
                 padding: 8px 12px;
                 background: rgba(255, 255, 255, 0.96);
                 border-right: 0;
-                border-bottom: 1px solid rgba(65, 105, 225, 0.12);
+                border-bottom: 1px solid rgba(21, 128, 61, 0.12);
                 box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             }
 
@@ -993,8 +993,8 @@
 code {
     padding: 1px 5px;
     border-radius: 4px;
-    background: rgba(65, 105, 225, 0.08);
-    color: #1d4ed8;
+    background: rgba(21, 128, 61, 0.08);
+    color: #047857;
     font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
     font-size: 0.92em;
 }
@@ -1048,7 +1048,7 @@ h1 {
 .metric-card strong {
     display: block;
     margin-bottom: 8px;
-    color: #7f1d1d;
+    color: #14532d;
     font-size: clamp(1.55rem, 2.2vw, 2rem);
     line-height: 1.1;
 }
@@ -1073,7 +1073,7 @@ h1 {
 
 .data-table-wrap {
     overflow-x: auto;
-    border: 1px solid #e8edf3;
+    border: 1px solid #dbeee2;
     border-radius: 8px;
     background: #ffffff;
 }
@@ -1093,7 +1093,7 @@ h1 {
 .data-table th,
 .data-table td {
     padding: 8px 9px;
-    border-bottom: 1px solid #edf0f5;
+    border-bottom: 1px solid #e4f5ea;
     text-align: center;
     white-space: nowrap;
 }
@@ -1110,29 +1110,29 @@ h1 {
 
 .data-table thead th {
     color: #111827;
-    background: #f8fafc;
+    background: #f0fdf4;
     font-weight: 800;
 }
 
 .data-table thead th:first-child {
-    background: #f8fafc;
+    background: #f0fdf4;
 }
 
 .data-table tbody tr:nth-child(even) td {
-    background: #fcfcfd;
+    background: #fbfefc;
 }
 
 .data-table tbody tr:nth-child(even) td:first-child {
-    background: #fcfcfd;
+    background: #fbfefc;
 }
 
 .data-table td.best {
-    color: #7f1d1d;
+    color: #14532d;
     font-weight: 850;
 }
 
 .data-table td.second {
-    color: #1d4ed8;
+    color: #047857;
     font-weight: 750;
     text-decoration: underline;
     text-underline-offset: 2px;
@@ -1148,8 +1148,8 @@ h1 {
     border: 1px dashed rgba(255, 255, 255, 0.28);
     border-radius: 6px;
     background:
-        linear-gradient(135deg, rgba(65, 105, 225, 0.22), rgba(255, 69, 0, 0.16)),
-        #080d15;
+        linear-gradient(135deg, rgba(15, 118, 110, 0.28), rgba(132, 204, 22, 0.2)),
+        #06140e;
     color: #f8fafc;
     text-align: center;
     font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
@@ -1166,12 +1166,12 @@ h1 {
     grid-template-columns: minmax(180px, 1fr);
 }
 
-.task-cramped { --task-color: #2563eb; }
-.task-ring { --task-color: #dc2626; }
-.task-counter { --task-color: #d97706; }
-.task-asymm { --task-color: #7c3aed; }
+.task-cramped { --task-color: #0f766e; }
+.task-ring { --task-color: #16a34a; }
+.task-counter { --task-color: #84cc16; }
+.task-asymm { --task-color: #4d7c0f; }
 .task-forced { --task-color: #059669; }
-.task-human { --task-color: #db2777; }
+.task-human { --task-color: #22c55e; }
 
 @media (max-width: 900px) {
     h1 {
