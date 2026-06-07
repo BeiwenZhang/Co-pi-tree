@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Co-pi-tree rollout videos">
+    <meta name="description" content="Co-pi-tree collaborating-with-AI video comparisons">
     <title>Co-pi-tree: Video</title>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="styles.css">
@@ -24,134 +24,457 @@
     <main class="page-main">
         <section class="section-alternate">
             <div class="container">
-                <h2>Qualitative Rollout Videos</h2>
+                <h2>Collaborating with AI</h2>
                 <p class="rollout-intro">
-                    Co-&pi;-tree rollout videos for the five benchmark layouts, followed by
-                    matching Human-AI collaboration clips collected from the interactive demo.
+                    Layout-by-layout qualitative comparisons across SP, COLE, ProAgent, and
+                    Co-&pi;-tree. For each method, the first row shows the rollout when
+                    <code>p0</code> uses that method, and the second row shows the role-swapped
+                    rollout when <code>p1</code> uses that method.
                 </p>
 
-                <div class="rollout-group">
-                    <div class="rollout-group-header">
+                <div class="comparison-note-strip">
+                    <span class="comparison-note-chip">4 methods</span>
+                    <span class="comparison-note-chip">5 layouts</span>
+                    <span class="comparison-note-chip">p0 / p1 role switch highlighted</span>
+                </div>
+
+                <div class="comparison-layout-block task-cramped">
+                    <div class="comparison-layout-header">
                         <div>
-                            <h3>Overcooked-AI Layouts</h3>
-                            <p>Rollouts for the five benchmark layouts used in the paper.</p>
-                            <p class="rollout-view-note">Best viewed in fullscreen with the video player's fullscreen button.</p>
+                            <h3>Cramped Room</h3>
+                            <p>Dense contact and quick handoffs reveal whether collaboration policies remain legible after role swaps.</p>
                         </div>
-                        <span class="rollout-count">5 videos</span>
+                        <span class="rollout-count">8 videos</span>
                     </div>
-                    <div class="rollout-task-stack">
-                        <div class="rollout-task-block task-cramped">
-                            <div class="rollout-task-heading">Cramped Room</div>
-                            <div class="rollout-grid">
-                                <article class="rollout-card task-cramped" data-video="assets/videos/cramped-room.mp4">
+                    <div class="comparison-method-grid">
+                        <section class="comparison-method-column method-sp">
+                            <div class="comparison-method-title">SP</div>
+                            <div class="comparison-role-row">
+                                <div class="comparison-role-label">p0 as SP</div>
+                                <article class="comparison-video-card task-cramped" data-video="assets/videos/collaborating-ai/sp/cramped_room__SP__p0.mp4">
                                     <div class="video-placeholder">Demo pending</div>
-                                    <h4>Policy Rollout</h4>
-                                    <p>Compact collaboration with fast handoffs.</p>
+                                    <h4>Primary Role</h4>
+                                    <p>Self-play policy as player 0.</p>
                                 </article>
                             </div>
-                        </div>
-                        <div class="rollout-task-block task-ring">
-                            <div class="rollout-task-heading">Coordination Ring</div>
-                            <div class="rollout-grid">
-                                <article class="rollout-card task-ring" data-video="assets/videos/coordination-ring.mp4">
+                            <div class="comparison-role-row">
+                                <div class="comparison-role-label">p1 as SP</div>
+                                <article class="comparison-video-card task-cramped" data-video="assets/videos/collaborating-ai/sp/cramped_room__SP__p1.mp4">
                                     <div class="video-placeholder">Demo pending</div>
-                                    <h4>Policy Rollout</h4>
-                                    <p>Movement coordination around a ring.</p>
+                                    <h4>Role Swap</h4>
+                                    <p>Self-play policy reassigned to player 1.</p>
                                 </article>
                             </div>
-                        </div>
-                        <div class="rollout-task-block task-counter">
-                            <div class="rollout-task-heading">Counter Circuit</div>
-                            <div class="rollout-grid">
-                                <article class="rollout-card task-counter" data-video="assets/videos/counter-circuit.mp4">
+                        </section>
+                        <section class="comparison-method-column method-cole">
+                            <div class="comparison-method-title">COLE</div>
+                            <div class="comparison-role-row">
+                                <div class="comparison-role-label">p0 as COLE</div>
+                                <article class="comparison-video-card task-cramped" data-video="assets/videos/collaborating-ai/cole/cramped_room__COLE__p0.mp4">
                                     <div class="video-placeholder">Demo pending</div>
-                                    <h4>Policy Rollout</h4>
-                                    <p>Counter bottlenecks and readable intent.</p>
+                                    <h4>Primary Role</h4>
+                                    <p>COLE controlling player 0.</p>
                                 </article>
                             </div>
-                        </div>
-                        <div class="rollout-task-block task-asymm">
-                            <div class="rollout-task-heading">Asymmetric Advantages</div>
-                            <div class="rollout-grid">
-                                <article class="rollout-card task-asymm" data-video="assets/videos/asymmetric-advantages.mp4">
+                            <div class="comparison-role-row">
+                                <div class="comparison-role-label">p1 as COLE</div>
+                                <article class="comparison-video-card task-cramped" data-video="assets/videos/collaborating-ai/cole/cramped_room__COLE__p1.mp4">
                                     <div class="video-placeholder">Demo pending</div>
-                                    <h4>Policy Rollout</h4>
-                                    <p>Role specialization across asymmetric regions.</p>
+                                    <h4>Role Swap</h4>
+                                    <p>COLE controlling player 1.</p>
                                 </article>
                             </div>
-                        </div>
-                        <div class="rollout-task-block task-forced">
-                            <div class="rollout-task-heading">Forced Coordination</div>
-                            <div class="rollout-grid">
-                                <article class="rollout-card task-forced" data-video="assets/videos/forced-coordination.mp4">
+                        </section>
+                        <section class="comparison-method-column method-proagent">
+                            <div class="comparison-method-title">ProAgent</div>
+                            <div class="comparison-role-row">
+                                <div class="comparison-role-label">p0 as ProAgent</div>
+                                <article class="comparison-video-card task-cramped" data-video="assets/videos/collaborating-ai/proagent/cramped_room__ProAgent__p0.mp4">
                                     <div class="video-placeholder">Demo pending</div>
-                                    <h4>Policy Rollout</h4>
-                                    <p>Separated work areas require cooperation.</p>
+                                    <h4>Primary Role</h4>
+                                    <p>ProAgent rollout with player 0.</p>
                                 </article>
                             </div>
-                        </div>
+                            <div class="comparison-role-row">
+                                <div class="comparison-role-label">p1 as ProAgent</div>
+                                <article class="comparison-video-card task-cramped" data-video="assets/videos/collaborating-ai/proagent/cramped_room__ProAgent__p1.mp4">
+                                    <div class="video-placeholder">Demo pending</div>
+                                    <h4>Role Swap</h4>
+                                    <p>ProAgent rollout after swapping to player 1.</p>
+                                </article>
+                            </div>
+                        </section>
+                        <section class="comparison-method-column method-copitree">
+                            <div class="comparison-method-title">Co-&pi;-tree</div>
+                            <div class="comparison-role-row">
+                                <div class="comparison-role-label">p0 as Co-&pi;-tree</div>
+                                <article class="comparison-video-card task-cramped" data-video="assets/videos/collaborating-ai/copitree/p0/cramped-room.mp4">
+                                    <div class="video-placeholder">Demo pending</div>
+                                    <h4>Primary Role</h4>
+                                    <p>Co-&pi;-tree controlling player 0.</p>
+                                </article>
+                            </div>
+                            <div class="comparison-role-row">
+                                <div class="comparison-role-label">p1 as Co-&pi;-tree</div>
+                                <article class="comparison-video-card task-cramped" data-video="assets/videos/collaborating-ai/copitree/p1/cramped-room-p1.mp4">
+                                    <div class="video-placeholder">Demo pending</div>
+                                    <h4>Role Swap</h4>
+                                    <p>Role-swapped Co-&pi;-tree rollout with player 1.</p>
+                                </article>
+                            </div>
+                        </section>
                     </div>
                 </div>
 
-                <div class="rollout-group">
-                    <div class="rollout-group-header">
+                <div class="comparison-layout-block task-ring">
+                    <div class="comparison-layout-header">
                         <div>
-                            <h3>Human-AI Demo</h3>
-                            <p>One clip per layout showing a human teammate interacting with Co-&pi;-tree.</p>
+                            <h3>Coordination Ring</h3>
+                            <p>Longer-horizon routing in the ring layout makes role-conditioned movement patterns easy to compare across methods.</p>
                         </div>
-                        <span class="rollout-count">5 videos</span>
+                        <span class="rollout-count">8 videos</span>
                     </div>
-                    <div class="rollout-task-stack">
-                        <div class="rollout-task-block task-cramped">
-                            <div class="rollout-task-heading">Cramped Room</div>
-                            <div class="rollout-grid">
-                                <article class="rollout-card task-cramped" data-video="assets/videos/human-cramped-room.mp4">
+                    <div class="comparison-method-grid">
+                        <section class="comparison-method-column method-sp">
+                            <div class="comparison-method-title">SP</div>
+                            <div class="comparison-role-row">
+                                <div class="comparison-role-label">p0 as SP</div>
+                                <article class="comparison-video-card task-ring" data-video="assets/videos/collaborating-ai/sp/coordination_ring__SP__p0.mp4">
                                     <div class="video-placeholder">Demo pending</div>
-                                    <h4>Human Partner Demo</h4>
-                                    <p>Compact kitchen collaboration with rapid human-AI exchanges.</p>
+                                    <h4>Primary Role</h4>
+                                    <p>Self-play policy as player 0.</p>
                                 </article>
                             </div>
-                        </div>
-                        <div class="rollout-task-block task-ring">
-                            <div class="rollout-task-heading">Coordination Ring</div>
-                            <div class="rollout-grid">
-                                <article class="rollout-card task-ring" data-video="assets/videos/human-coordination-ring.mp4">
+                            <div class="comparison-role-row">
+                                <div class="comparison-role-label">p1 as SP</div>
+                                <article class="comparison-video-card task-ring" data-video="assets/videos/collaborating-ai/sp/coordination_ring__SP__p1.mp4">
                                     <div class="video-placeholder">Demo pending</div>
-                                    <h4>Human Partner Demo</h4>
-                                    <p>Joint navigation and task division around the ring.</p>
+                                    <h4>Role Swap</h4>
+                                    <p>Self-play policy reassigned to player 1.</p>
                                 </article>
                             </div>
-                        </div>
-                        <div class="rollout-task-block task-counter">
-                            <div class="rollout-task-heading">Counter Circuit</div>
-                            <div class="rollout-grid">
-                                <article class="rollout-card task-counter" data-video="assets/videos/human-counter-circuit.mp4">
+                        </section>
+                        <section class="comparison-method-column method-cole">
+                            <div class="comparison-method-title">COLE</div>
+                            <div class="comparison-role-row">
+                                <div class="comparison-role-label">p0 as COLE</div>
+                                <article class="comparison-video-card task-ring" data-video="assets/videos/collaborating-ai/cole/coordination_ring__COLE__p0.mp4">
                                     <div class="video-placeholder">Demo pending</div>
-                                    <h4>Human Partner Demo</h4>
-                                    <p>Human-AI coordination through counter-heavy traffic.</p>
+                                    <h4>Primary Role</h4>
+                                    <p>COLE controlling player 0.</p>
                                 </article>
                             </div>
-                        </div>
-                        <div class="rollout-task-block task-asymm">
-                            <div class="rollout-task-heading">Asymmetric Advantages</div>
-                            <div class="rollout-grid">
-                                <article class="rollout-card task-asymm" data-video="assets/videos/human-asymmetric-advantages.mp4">
+                            <div class="comparison-role-row">
+                                <div class="comparison-role-label">p1 as COLE</div>
+                                <article class="comparison-video-card task-ring" data-video="assets/videos/collaborating-ai/cole/coordination_ring__COLE__p1.mp4">
                                     <div class="video-placeholder">Demo pending</div>
-                                    <h4>Human Partner Demo</h4>
-                                    <p>Specialized zones remain legible in mixed human-AI play.</p>
+                                    <h4>Role Swap</h4>
+                                    <p>COLE controlling player 1.</p>
                                 </article>
                             </div>
-                        </div>
-                        <div class="rollout-task-block task-forced">
-                            <div class="rollout-task-heading">Forced Coordination</div>
-                            <div class="rollout-grid">
-                                <article class="rollout-card task-forced" data-video="assets/videos/human-forced-coordination.mp4">
+                        </section>
+                        <section class="comparison-method-column method-proagent">
+                            <div class="comparison-method-title">ProAgent</div>
+                            <div class="comparison-role-row">
+                                <div class="comparison-role-label">p0 as ProAgent</div>
+                                <article class="comparison-video-card task-ring" data-video="assets/videos/collaborating-ai/proagent/coordination_ring__ProAgent__p0.mp4">
                                     <div class="video-placeholder">Demo pending</div>
-                                    <h4>Human Partner Demo</h4>
-                                    <p>Separated stations require consistent complementary timing.</p>
+                                    <h4>Primary Role</h4>
+                                    <p>ProAgent rollout with player 0.</p>
                                 </article>
                             </div>
+                            <div class="comparison-role-row">
+                                <div class="comparison-role-label">p1 as ProAgent</div>
+                                <article class="comparison-video-card task-ring" data-video="assets/videos/collaborating-ai/proagent/coordination_ring__ProAgent__p1.mp4">
+                                    <div class="video-placeholder">Demo pending</div>
+                                    <h4>Role Swap</h4>
+                                    <p>ProAgent rollout after swapping to player 1.</p>
+                                </article>
+                            </div>
+                        </section>
+                        <section class="comparison-method-column method-copitree">
+                            <div class="comparison-method-title">Co-&pi;-tree</div>
+                            <div class="comparison-role-row">
+                                <div class="comparison-role-label">p0 as Co-&pi;-tree</div>
+                                <article class="comparison-video-card task-ring" data-video="assets/videos/collaborating-ai/copitree/p0/coordination-ring.mp4">
+                                    <div class="video-placeholder">Demo pending</div>
+                                    <h4>Primary Role</h4>
+                                    <p>Co-&pi;-tree controlling player 0.</p>
+                                </article>
+                            </div>
+                            <div class="comparison-role-row">
+                                <div class="comparison-role-label">p1 as Co-&pi;-tree</div>
+                                <article class="comparison-video-card task-ring" data-video="assets/videos/collaborating-ai/copitree/p1/coordination-ring-p1.mp4">
+                                    <div class="video-placeholder">Demo pending</div>
+                                    <h4>Role Swap</h4>
+                                    <p>Role-swapped Co-&pi;-tree rollout with player 1.</p>
+                                </article>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+                <div class="comparison-layout-block task-counter">
+                    <div class="comparison-layout-header">
+                        <div>
+                            <h3>Counter Circuit</h3>
+                            <p>Counter bottlenecks emphasize whether the acting agent communicates intent clearly after the controlled role changes.</p>
                         </div>
+                        <span class="rollout-count">8 videos</span>
+                    </div>
+                    <div class="comparison-method-grid">
+                        <section class="comparison-method-column method-sp">
+                            <div class="comparison-method-title">SP</div>
+                            <div class="comparison-role-row">
+                                <div class="comparison-role-label">p0 as SP</div>
+                                <article class="comparison-video-card task-counter" data-video="assets/videos/collaborating-ai/sp/counter_circuit__SP__p0.mp4">
+                                    <div class="video-placeholder">Demo pending</div>
+                                    <h4>Primary Role</h4>
+                                    <p>Self-play policy as player 0.</p>
+                                </article>
+                            </div>
+                            <div class="comparison-role-row">
+                                <div class="comparison-role-label">p1 as SP</div>
+                                <article class="comparison-video-card task-counter" data-video="assets/videos/collaborating-ai/sp/counter_circuit__SP__p1.mp4">
+                                    <div class="video-placeholder">Demo pending</div>
+                                    <h4>Role Swap</h4>
+                                    <p>Self-play policy reassigned to player 1.</p>
+                                </article>
+                            </div>
+                        </section>
+                        <section class="comparison-method-column method-cole">
+                            <div class="comparison-method-title">COLE</div>
+                            <div class="comparison-role-row">
+                                <div class="comparison-role-label">p0 as COLE</div>
+                                <article class="comparison-video-card task-counter" data-video="assets/videos/collaborating-ai/cole/counter_circuit__COLE__p0.mp4">
+                                    <div class="video-placeholder">Demo pending</div>
+                                    <h4>Primary Role</h4>
+                                    <p>COLE controlling player 0.</p>
+                                </article>
+                            </div>
+                            <div class="comparison-role-row">
+                                <div class="comparison-role-label">p1 as COLE</div>
+                                <article class="comparison-video-card task-counter" data-video="assets/videos/collaborating-ai/cole/counter_circuit__COLE__p1.mp4">
+                                    <div class="video-placeholder">Demo pending</div>
+                                    <h4>Role Swap</h4>
+                                    <p>COLE controlling player 1.</p>
+                                </article>
+                            </div>
+                        </section>
+                        <section class="comparison-method-column method-proagent">
+                            <div class="comparison-method-title">ProAgent</div>
+                            <div class="comparison-role-row">
+                                <div class="comparison-role-label">p0 as ProAgent</div>
+                                <article class="comparison-video-card task-counter" data-video="assets/videos/collaborating-ai/proagent/counter_circuit__ProAgent__p0.mp4">
+                                    <div class="video-placeholder">Demo pending</div>
+                                    <h4>Primary Role</h4>
+                                    <p>ProAgent rollout with player 0.</p>
+                                </article>
+                            </div>
+                            <div class="comparison-role-row">
+                                <div class="comparison-role-label">p1 as ProAgent</div>
+                                <article class="comparison-video-card task-counter" data-video="assets/videos/collaborating-ai/proagent/counter_circuit__ProAgent__p1.mp4">
+                                    <div class="video-placeholder">Demo pending</div>
+                                    <h4>Role Swap</h4>
+                                    <p>ProAgent rollout after swapping to player 1.</p>
+                                </article>
+                            </div>
+                        </section>
+                        <section class="comparison-method-column method-copitree">
+                            <div class="comparison-method-title">Co-&pi;-tree</div>
+                            <div class="comparison-role-row">
+                                <div class="comparison-role-label">p0 as Co-&pi;-tree</div>
+                                <article class="comparison-video-card task-counter" data-video="assets/videos/collaborating-ai/copitree/p0/counter-circuit.mp4">
+                                    <div class="video-placeholder">Demo pending</div>
+                                    <h4>Primary Role</h4>
+                                    <p>Co-&pi;-tree controlling player 0.</p>
+                                </article>
+                            </div>
+                            <div class="comparison-role-row">
+                                <div class="comparison-role-label">p1 as Co-&pi;-tree</div>
+                                <article class="comparison-video-card task-counter" data-video="assets/videos/collaborating-ai/copitree/p1/counter-circuit-p1.mp4">
+                                    <div class="video-placeholder">Demo pending</div>
+                                    <h4>Role Swap</h4>
+                                    <p>Role-swapped Co-&pi;-tree rollout with player 1.</p>
+                                </article>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+                <div class="comparison-layout-block task-asymm">
+                    <div class="comparison-layout-header">
+                        <div>
+                            <h3>Asymmetric Advantages</h3>
+                            <p>Asymmetric regions expose whether each method preserves specialization when the controlled agent changes from p0 to p1.</p>
+                        </div>
+                        <span class="rollout-count">8 videos</span>
+                    </div>
+                    <div class="comparison-method-grid">
+                        <section class="comparison-method-column method-sp">
+                            <div class="comparison-method-title">SP</div>
+                            <div class="comparison-role-row">
+                                <div class="comparison-role-label">p0 as SP</div>
+                                <article class="comparison-video-card task-asymm" data-video="assets/videos/collaborating-ai/sp/asymmetric_advantages__SP__p0.mp4">
+                                    <div class="video-placeholder">Demo pending</div>
+                                    <h4>Primary Role</h4>
+                                    <p>Self-play policy as player 0.</p>
+                                </article>
+                            </div>
+                            <div class="comparison-role-row">
+                                <div class="comparison-role-label">p1 as SP</div>
+                                <article class="comparison-video-card task-asymm" data-video="assets/videos/collaborating-ai/sp/asymmetric_advantages__SP__p1.mp4">
+                                    <div class="video-placeholder">Demo pending</div>
+                                    <h4>Role Swap</h4>
+                                    <p>Self-play policy reassigned to player 1.</p>
+                                </article>
+                            </div>
+                        </section>
+                        <section class="comparison-method-column method-cole">
+                            <div class="comparison-method-title">COLE</div>
+                            <div class="comparison-role-row">
+                                <div class="comparison-role-label">p0 as COLE</div>
+                                <article class="comparison-video-card task-asymm" data-video="assets/videos/collaborating-ai/cole/asymmetric_advantages__COLE__p0.mp4">
+                                    <div class="video-placeholder">Demo pending</div>
+                                    <h4>Primary Role</h4>
+                                    <p>COLE controlling player 0.</p>
+                                </article>
+                            </div>
+                            <div class="comparison-role-row">
+                                <div class="comparison-role-label">p1 as COLE</div>
+                                <article class="comparison-video-card task-asymm" data-video="assets/videos/collaborating-ai/cole/asymmetric_advantages__COLE__p1.mp4">
+                                    <div class="video-placeholder">Demo pending</div>
+                                    <h4>Role Swap</h4>
+                                    <p>COLE controlling player 1.</p>
+                                </article>
+                            </div>
+                        </section>
+                        <section class="comparison-method-column method-proagent">
+                            <div class="comparison-method-title">ProAgent</div>
+                            <div class="comparison-role-row">
+                                <div class="comparison-role-label">p0 as ProAgent</div>
+                                <article class="comparison-video-card task-asymm" data-video="assets/videos/collaborating-ai/proagent/asymmetric_advantages__ProAgent__p0.mp4">
+                                    <div class="video-placeholder">Demo pending</div>
+                                    <h4>Primary Role</h4>
+                                    <p>ProAgent rollout with player 0.</p>
+                                </article>
+                            </div>
+                            <div class="comparison-role-row">
+                                <div class="comparison-role-label">p1 as ProAgent</div>
+                                <article class="comparison-video-card task-asymm" data-video="assets/videos/collaborating-ai/proagent/asymmetric_advantages__ProAgent__p1.mp4">
+                                    <div class="video-placeholder">Demo pending</div>
+                                    <h4>Role Swap</h4>
+                                    <p>ProAgent rollout after swapping to player 1.</p>
+                                </article>
+                            </div>
+                        </section>
+                        <section class="comparison-method-column method-copitree">
+                            <div class="comparison-method-title">Co-&pi;-tree</div>
+                            <div class="comparison-role-row">
+                                <div class="comparison-role-label">p0 as Co-&pi;-tree</div>
+                                <article class="comparison-video-card task-asymm" data-video="assets/videos/collaborating-ai/copitree/p0/asymmetric-advantages.mp4">
+                                    <div class="video-placeholder">Demo pending</div>
+                                    <h4>Primary Role</h4>
+                                    <p>Co-&pi;-tree controlling player 0.</p>
+                                </article>
+                            </div>
+                            <div class="comparison-role-row">
+                                <div class="comparison-role-label">p1 as Co-&pi;-tree</div>
+                                <article class="comparison-video-card task-asymm" data-video="assets/videos/collaborating-ai/copitree/p1/asymmetric-advantages-p1.mp4">
+                                    <div class="video-placeholder">Demo pending</div>
+                                    <h4>Role Swap</h4>
+                                    <p>Role-swapped Co-&pi;-tree rollout with player 1.</p>
+                                </article>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+                <div class="comparison-layout-block task-forced">
+                    <div class="comparison-layout-header">
+                        <div>
+                            <h3>Forced Coordination</h3>
+                            <p>Split workspaces make it easy to see how each method handles complementary timing when the acting role is switched.</p>
+                        </div>
+                        <span class="rollout-count">8 videos</span>
+                    </div>
+                    <div class="comparison-method-grid">
+                        <section class="comparison-method-column method-sp">
+                            <div class="comparison-method-title">SP</div>
+                            <div class="comparison-role-row">
+                                <div class="comparison-role-label">p0 as SP</div>
+                                <article class="comparison-video-card task-forced" data-video="assets/videos/collaborating-ai/sp/forced_coordination__SP__p0.mp4">
+                                    <div class="video-placeholder">Demo pending</div>
+                                    <h4>Primary Role</h4>
+                                    <p>Self-play policy as player 0.</p>
+                                </article>
+                            </div>
+                            <div class="comparison-role-row">
+                                <div class="comparison-role-label">p1 as SP</div>
+                                <article class="comparison-video-card task-forced" data-video="assets/videos/collaborating-ai/sp/forced_coordination__SP__p1.mp4">
+                                    <div class="video-placeholder">Demo pending</div>
+                                    <h4>Role Swap</h4>
+                                    <p>Self-play policy reassigned to player 1.</p>
+                                </article>
+                            </div>
+                        </section>
+                        <section class="comparison-method-column method-cole">
+                            <div class="comparison-method-title">COLE</div>
+                            <div class="comparison-role-row">
+                                <div class="comparison-role-label">p0 as COLE</div>
+                                <article class="comparison-video-card task-forced" data-video="assets/videos/collaborating-ai/cole/forced_coordination__COLE__p0.mp4">
+                                    <div class="video-placeholder">Demo pending</div>
+                                    <h4>Primary Role</h4>
+                                    <p>COLE controlling player 0.</p>
+                                </article>
+                            </div>
+                            <div class="comparison-role-row">
+                                <div class="comparison-role-label">p1 as COLE</div>
+                                <article class="comparison-video-card task-forced" data-video="assets/videos/collaborating-ai/cole/forced_coordination__COLE__p1.mp4">
+                                    <div class="video-placeholder">Demo pending</div>
+                                    <h4>Role Swap</h4>
+                                    <p>COLE controlling player 1.</p>
+                                </article>
+                            </div>
+                        </section>
+                        <section class="comparison-method-column method-proagent">
+                            <div class="comparison-method-title">ProAgent</div>
+                            <div class="comparison-role-row">
+                                <div class="comparison-role-label">p0 as ProAgent</div>
+                                <article class="comparison-video-card task-forced" data-video="assets/videos/collaborating-ai/proagent/forced_coordination__ProAgent__p0.mp4">
+                                    <div class="video-placeholder">Demo pending</div>
+                                    <h4>Primary Role</h4>
+                                    <p>ProAgent rollout with player 0.</p>
+                                </article>
+                            </div>
+                            <div class="comparison-role-row">
+                                <div class="comparison-role-label">p1 as ProAgent</div>
+                                <article class="comparison-video-card task-forced" data-video="assets/videos/collaborating-ai/proagent/forced_coordination__ProAgent__p1.mp4">
+                                    <div class="video-placeholder">Demo pending</div>
+                                    <h4>Role Swap</h4>
+                                    <p>ProAgent rollout after swapping to player 1.</p>
+                                </article>
+                            </div>
+                        </section>
+                        <section class="comparison-method-column method-copitree">
+                            <div class="comparison-method-title">Co-&pi;-tree</div>
+                            <div class="comparison-role-row">
+                                <div class="comparison-role-label">p0 as Co-&pi;-tree</div>
+                                <article class="comparison-video-card task-forced" data-video="assets/videos/collaborating-ai/copitree/p0/forced-coordination.mp4">
+                                    <div class="video-placeholder">Demo pending</div>
+                                    <h4>Primary Role</h4>
+                                    <p>Co-&pi;-tree controlling player 0.</p>
+                                </article>
+                            </div>
+                            <div class="comparison-role-row">
+                                <div class="comparison-role-label">p1 as Co-&pi;-tree</div>
+                                <article class="comparison-video-card task-forced" data-video="assets/videos/collaborating-ai/copitree/p1/forced-coordination-p1.mp4">
+                                    <div class="video-placeholder">Demo pending</div>
+                                    <h4>Role Swap</h4>
+                                    <p>Role-swapped Co-&pi;-tree rollout with player 1.</p>
+                                </article>
+                            </div>
+                        </section>
                     </div>
                 </div>
             </div>
