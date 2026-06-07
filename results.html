@@ -16,7 +16,7 @@
             <a href="method.html">Method</a>
             <a href="results.html" class="active">Results</a>
             <a href="conclusion.html">Conclusion</a>
-            <a href="video.html">video</a>
+            <a href="video.html">Video-ZSC wth AI</a>
             <a href="reference.html">reference</a>
         </nav>
     </div>
@@ -74,6 +74,17 @@
                         8 of 10 layout-role settings and improves average reward by 35.4%
                         over the baseline average.</p>
 
+                    <div class="resource-list">
+                        <a class="resource-link" href="video.html">
+                            <i data-lucide="play-square"></i>
+                            <div>
+                                <strong>Video-ZSC wth AI</strong>
+                                <span>Layout-by-layout qualitative comparisons across SP, COLE, ProAgent, and Co-&pi;-tree.</span>
+                                <span class="resource-url">video.html</span>
+                            </div>
+                        </a>
+                    </div>
+
                     <div class="data-table-card">
                         <div class="data-table-title">Table 1: ZSC With AI Partners</div>
                         <p class="data-table-caption">
@@ -111,6 +122,14 @@
                             </table>
                         </div>
                     </div>
+
+                    <div class="media-container narrow-media tight">
+                        <img src="assets/images/results-query-latency.png" alt="LLM query and latency comparison">
+                        <div class="caption">
+                            Query and latency comparison against ProAgent and CausalPlan.
+                            After learning, Co-&pi;-tree executes the policy tree directly.
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -119,29 +138,31 @@
 
         <section class="section">
             <div class="container">
-                <h2>Human Partners and Efficiency</h2>
+                <h2>Human Partners</h2>
                 <div class="content">
                     <div class="research-question">
-                        Q2: Does the policy tree preserve collaboration quality while reducing online reasoning cost?
+                        Q2: Does the policy tree preserve collaboration quality with real human partners?
                     </div>
                     <p><strong>Answer:</strong> Human-agent results show the full method
                         has the highest mean reward on all five layouts among the full
-                        method and ablations. Efficiency results show 77.7% fewer LLM
-                        queries and 97.1% lower test-time latency than online LLM baselines.</p>
+                        method and ablations.</p>
+
+                    <div class="resource-list">
+                        <a class="resource-link" href="video-zsc-human.html">
+                            <i data-lucide="users"></i>
+                            <div>
+                                <strong>Video-ZSC wth human</strong>
+                                <span>Reserved for the human-partner qualitative video page.</span>
+                                <span class="resource-url">video-zsc-human.html</span>
+                            </div>
+                        </a>
+                    </div>
 
                     <div class="media-container figure-wide tight">
                         <img src="assets/images/results-box.png" alt="Human-agent reward box plots">
                         <div class="caption">
                             Human-agent collaboration rewards by layout. Boxes aggregate
                             per-volunteer averages over the two player-role assignments.
-                        </div>
-                    </div>
-
-                    <div class="media-container narrow-media tight">
-                        <img src="assets/images/results-query-latency.png" alt="LLM query and latency comparison">
-                        <div class="caption">
-                            Query and latency comparison against ProAgent and CausalPlan.
-                            After learning, Co-&pi;-tree executes the policy tree directly.
                         </div>
                     </div>
                 </div>

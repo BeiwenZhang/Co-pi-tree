@@ -497,6 +497,19 @@
             box-shadow: 0 4px 12px rgba(17, 24, 39, 0.045);
         }
 
+        .comparison-disclaimer {
+            max-width: 980px;
+            margin: 0 auto 22px;
+            padding: 12px 14px;
+            border-left: 4px solid #0f766e;
+            border-radius: 10px;
+            background: linear-gradient(90deg, rgba(15, 118, 110, 0.08), rgba(255, 255, 255, 0.96));
+            color: #214332;
+            font-size: 0.88rem;
+            line-height: 1.55;
+            box-shadow: 0 4px 14px rgba(17, 24, 39, 0.04);
+        }
+
         .comparison-layout-block {
             --task-color: var(--line);
             margin: 22px 0 28px;
@@ -1058,6 +1071,10 @@
             .tldr,
             .research-question {
                 padding: 18px;
+            }
+            .comparison-disclaimer {
+                margin-bottom: 18px;
+                padding: 10px 12px;
             }
             .page-main:has(.comparison-layout-block) .container {
                 width: min(100% - 24px, 975px);
