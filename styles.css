@@ -479,6 +479,10 @@
             margin: 0 0 26px;
         }
 
+        .page-main:has(.comparison-layout-block) .container {
+            width: min(1320px, calc(100% - 40px));
+        }
+
         .comparison-note-chip {
             display: inline-flex;
             align-items: center;
@@ -496,7 +500,7 @@
         .comparison-layout-block {
             --task-color: var(--line);
             margin: 22px 0 28px;
-            padding: 18px;
+            padding: 20px;
             background: linear-gradient(180deg, #ffffff 0%, #fbfefc 100%);
             border: 1px solid var(--line);
             border-top: 6px solid var(--task-color);
@@ -534,7 +538,7 @@
         .comparison-method-grid {
             display: grid;
             grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 14px;
+            gap: 12px;
             align-items: start;
         }
 
@@ -543,7 +547,7 @@
             flex-direction: column;
             gap: 10px;
             min-width: 0;
-            padding: 12px;
+            padding: 10px;
             background: #ffffff;
             border: 1px solid #dbeee2;
             border-radius: 12px;
@@ -611,14 +615,14 @@
             border: 1px solid #dbeee2;
             border-top: 4px solid var(--task-color);
             border-radius: 10px;
-            padding: 8px;
+            padding: 6px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
         .comparison-video-card video {
             display: block;
             width: 100%;
-            aspect-ratio: 1 / 1;
+            aspect-ratio: 0.86 / 1;
             object-fit: contain;
             object-position: center;
             border-radius: 6px;
@@ -983,6 +987,9 @@
             .resource-list {
                 grid-template-columns: 1fr;
             }
+            .page-main:has(.comparison-layout-block) .container {
+                width: min(100% - 30px, 1180px);
+            }
             .comparison-method-grid {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
@@ -1036,6 +1043,9 @@
             .tldr,
             .research-question {
                 padding: 18px;
+            }
+            .page-main:has(.comparison-layout-block) .container {
+                width: min(100% - 24px, 975px);
             }
             .comparison-layout-block {
                 padding: 14px;
