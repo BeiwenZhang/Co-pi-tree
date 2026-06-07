@@ -1219,6 +1219,15 @@ h1 {
     overflow-wrap: anywhere;
 }
 
+.video-error {
+    border-style: solid;
+    border-color: rgba(239, 68, 68, 0.32);
+    background:
+        linear-gradient(135deg, rgba(127, 29, 29, 0.4), rgba(239, 68, 68, 0.18)),
+        #140909;
+    color: #fee2e2;
+}
+
 .rollout-grid.single {
     grid-template-columns: minmax(180px, 320px);
 }
