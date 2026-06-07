@@ -24,7 +24,11 @@ Put demo videos in `assets/videos/` using these filenames:
 - `asymmetric-advantages.mp4`
 - `counter-circuit.mp4`
 - `forced-coordination.mp4`
-- `human-study.mp4`
+- `human-cramped-room.mp4`
+- `human-coordination-ring.mp4`
+- `human-counter-circuit.mp4`
+- `human-asymmetric-advantages.mp4`
+- `human-forced-coordination.mp4`
 
 The page automatically replaces each placeholder with the corresponding video when the file exists. The same files are used by `index.html` and `video.html`.
 
