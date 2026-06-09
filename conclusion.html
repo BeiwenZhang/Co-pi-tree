@@ -30,23 +30,23 @@
                     <p>
                         Co-&pi;-tree shows that LLM reasoning can be distilled into
                         executable and interpretable policy trees for human-AI
-                        collaboration. The learned policy executes quickly, reduces online
-                        LLM dependence, and exposes local decision branches for inspection
-                        and refinement.
+                        collaboration. The learned policy tree executes directly at test
+                        time, reduces online LLM dependence, and supports local branch-level
+                        inspection and refinement.
                     </p>
 
                     <div class="grid">
                         <div class="card">
                             <h3>Interpretability</h3>
-                            <p>Decision branches reveal why partner behavior is predicted and why the agent selects an action.</p>
+                            <p>Partner prediction and action selection remain explicit in the policy tree.</p>
                         </div>
                         <div class="card">
                             <h3>Efficiency</h3>
-                            <p>Test-time interaction avoids repeated LLM calls after the final policy tree is learned.</p>
+                            <p>After learning, execution proceeds without repeated LLM calls at test time.</p>
                         </div>
                         <div class="card">
                             <h3>Collaboration</h3>
-                            <p>Partner prediction and partner-conditioned action selection improve coordination with AI and human partners.</p>
+                            <p>Partner-behavior prediction and partner-conditioned action selection improve coordination with AI and human partners.</p>
                         </div>
                     </div>
                 </div>
