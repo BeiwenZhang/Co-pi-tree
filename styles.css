@@ -1479,6 +1479,14 @@ h1 {
     font-size: 19px;
 }
 
+.venue {
+    margin: 0.15rem 0 0.45rem;
+    color: #b91c1c;
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+}
+
 .author-note {
     color: var(--muted);
     font-size: 0.92rem;
